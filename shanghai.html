@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta property="og:title" content="Shanghai Sessions — The Mahjong Boutique">
+<meta property="og:description" content="Join our Shanghai sessions in Dubai. 50 AED entry, 50 AED redeemable against food. Tuesdays & Thursdays.">
+<meta property="og:image" content="https://mbldubai.com/logo.jpeg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mahjong Boutique">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mbldubai.com/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="https://mbldubai.com/logo.jpeg">
+<link rel="apple-touch-icon" href="https://mbldubai.com/logo.jpeg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shanghai Sessions — The Mahjong Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#17110A;--ink2:#3A2C1E;--muted:#8A7462;--border:#E5D9CC;
+  --bg:#F8F4EF;--card:#FFFFFF;--red:#B5221A;--gold:#B8880A;
+  --green:#296040;--teal:#1A7A6E;--r:13px;
+  --shadow:0 2px 12px rgba(23,17,10,.08);
+  --shadow-lg:0 8px 32px rgba(23,17,10,.13);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem}
+.brand{display:flex;align-items:center;gap:.55rem}
+.brand-tile{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0;display:block}
+.brand-tile img{width:100%;height:100%;object-fit:cover}
+.brand-mbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1}
+.brand-sub{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:1px}
+.nav-home{background:var(--ink);color:#fff;border:none;border-radius:7px;padding:.38rem .8rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+.hero{max-width:600px;margin:0 auto;padding:3.5rem 1.75rem 2.5rem;text-align:center}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--teal);margin-bottom:1rem}
+.hero-rule::before,.hero-rule::after{content:'';width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--teal))}
+.hero-rule::after{transform:scaleX(-1)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;line-height:1.05;color:var(--ink);margin-bottom:.7rem}
+.hero h1 em{font-style:italic;color:var(--teal)}
+.hero-desc{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:380px;margin:0 auto 1rem}
+.price-banner{display:inline-block;background:var(--teal);color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;padding:.45rem 1.2rem;border-radius:99px;margin-bottom:.6rem}
+.price-note{font-size:.78rem;color:var(--muted);margin-bottom:1.4rem}
+.hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.htag{display:inline-flex;align-items:center;gap:.3rem;background:var(--card);border:1px solid var(--border);border-radius:99px;padding:.28rem .8rem;font-size:.75rem;font-weight:500;color:var(--ink2)}
+.wrap{max-width:680px;margin:0 auto;padding:0 1.5rem 4rem}
+.sec-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.sec-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.sec-line{flex:1;height:1px;background:var(--border)}
+.sec-badge{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.18rem .6rem;border-radius:99px;white-space:nowrap;background:#E6F5F3;color:var(--teal)}
+.session-group{margin-bottom:2rem}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.15rem 1.4rem;display:block;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .18s;position:relative;overflow:hidden;margin-bottom:.6rem}
+.scard:last-child{margin-bottom:0}
+.scard-stripe{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--teal);border-radius:4px 0 0 4px}
+.scard:hover{border-color:#C8BAA8;box-shadow:var(--shadow);transform:translateY(-1px)}
+.sday-icon{font-size:1.8rem;text-align:center}
+.sinfo-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:.18rem}
+.sinfo-meta{font-size:.78rem;color:var(--muted);margin-bottom:.25rem}
+.sinfo-price{font-size:.8rem;font-weight:600;color:var(--gold)}
+
+.book-btn{background:var(--teal);color:#fff;border:none;border-radius:99px;padding:.3rem .85rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
+@media(min-width:540px){.overlay{align-items:center}}
+.overlay.open{opacity:1;pointer-events:all}
+.sheet{background:var(--card);border-radius:20px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;padding:1.8rem 1.8rem 2rem;transform:translateY(20px) scale(.98);transition:transform .32s cubic-bezier(.34,1.4,.64,1);position:relative}
+.overlay.open .sheet{transform:none}
+.sheet-x{position:absolute;top:1.15rem;right:1.15rem;width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;font-size:.88rem;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.sheet-x:hover{background:var(--border)}
+.sheet-type{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .65rem;border-radius:99px;margin-bottom:.55rem;background:#E6F5F3;color:var(--teal)}
+.sheet-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:.2rem}
+.sheet-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:1.4rem}
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);margin-bottom:.3rem}
+.field input,.field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none;appearance:none;transition:border-color .18s}
+.field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,122,110,.1);background:var(--card)}
+.field-2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.divider{height:1px;background:var(--border);margin:1.1rem 0}
+.summary-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.1rem}
+.sum-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.81rem;margin-bottom:.3rem}
+.sum-row:last-child{margin-bottom:0}
+.sum-k{color:var(--muted)}
+.sum-v{font-weight:600}
+.food-note{background:#E6F5F3;border-radius:8px;padding:.7rem .9rem;font-size:.8rem;color:var(--teal);margin-bottom:1rem;line-height:1.5}
+.btn-book{width:100%;background:var(--teal);color:#fff;border:none;border-radius:10px;padding:.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem;transition:background .18s,transform .18s}
+.btn-book:hover:not(:disabled){background:#145E55;transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-book:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.success{text-align:center;padding:.5rem 0}
+.succ-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem}
+.succ-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.succ-body{color:var(--muted);font-size:.86rem;line-height:1.65;margin-bottom:1.3rem}
+.succ-ref{background:var(--bg);border:1.5px dashed var(--border);border-radius:10px;padding:.7rem 1rem;margin-bottom:1.3rem}
+.succ-ref-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--teal);letter-spacing:.04em}
+.btn-done{background:var(--green);color:#fff;border:none;border-radius:10px;padding:.72rem 2rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer}
+footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:520px){
+  .scard{grid-template-columns:40px 1fr}
+  .sright{grid-column:2;flex-direction:row;align-items:center}
+  .field-2{grid-template-columns:1fr}
+  nav{padding:0 1rem}
+  .brand-sub{display:none}
+}
+
+.pay-btn{display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:.65rem;transition:background .18s,transform .18s}
+.pay-btn:hover{background:#1D5237;transform:translateY(-1px)}
+.pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.5rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand">
+    <div class="brand-tile"><img src="https://mbldubai.com/logo.jpeg" alt="The Mahjong Boutique Logo" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:7px"></div>
+    <div>
+      <div class="brand-mbl">The Mahjong Boutique</div>
+      <div class="brand-sub">Shanghai</div>
+    </div>
+  </div>
+  <a href="/" class="nav-home">← Back</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-rule">The Mahjong Boutique</div>
+  <h1>Shanghai<br><em>Sessions</em></h1>
+  <p class="hero-desc">Drop in for a fun and social Shanghai session. Great food, great company, great tiles.</p>
+  <div class="price-banner">100 AED · 50 AED redeemable against food at Dishtrict 🍽</div>
+  <div class="hero-tags">
+    <span class="htag">📅 Tuesdays & Thursdays</span>
+    <span class="htag">📍 Dishtrict</span>
+    
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="session-group">
+    <div class="sec-head">
+      <span class="sec-label">Tuesday Sessions</span>
+      <div class="sec-line"></div>
+      <span class="sec-badge">Weekly</span>
+    </div>
+    <div id="tuesday-list"></div>
+  </div>
+  <div class="session-group">
+    <div class="sec-head">
+      <span class="sec-label">Thursday Sessions</span>
+      <div class="sec-line"></div>
+      <span class="sec-badge">Weekly</span>
+    </div>
+    <div id="thursday-list"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="bgDismiss(event)">
+  <div class="sheet" id="sheet">
+    <button class="sheet-x" onclick="closeSheet()">✕</button>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
+
+const SESSIONS = [
+  // Tuesdays — 1 per week
+  {id:'t1',day:'Tuesday',date:'14 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
+  {id:'t2',day:'Tuesday',date:'14 Apr',slot:'5–7 PM',time:'5:00 – 7:00 PM',venue:'Dishtrict'},
+  {id:'t3',day:'Tuesday',date:'21 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
+  {id:'t4',day:'Tuesday',date:'21 Apr',slot:'5–7 PM',time:'5:00 – 7:00 PM',venue:'Dishtrict'},
+  // Thursdays — 1 per week
+  {id:'th1',day:'Thursday',date:'16 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
+  {id:'th2',day:'Thursday',date:'16 Apr',slot:'5–7 PM',time:'5:00 – 7:00 PM',venue:'Dishtrict'},
+  {id:'th3',day:'Thursday',date:'23 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
+  {id:'th4',day:'Thursday',date:'23 Apr',slot:'5–7 PM',time:'5:00 – 7:00 PM',venue:'Dishtrict'},
+];
+
+let activeSess = SESSIONS[0];
+
+function renderCard(s) {
+  return `<div class="scard" onclick="openSheet('${s.id}')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="text-align:center;min-width:40px">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;line-height:1;color:var(--teal)">${s.date.split(' ')[0]}</div>
+        <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">${s.date.split(' ')[1]}</div>
+      </div>
+      <div>
+        <div class="sinfo-title">${s.day} · ${s.slot}</div>
+        <div class="sinfo-meta">📍 ${s.venue}</div>
+      </div>
+    </div>
+    <button class="book-btn">Book →</button>
+  </div>`;
+}
+
+function renderSessions() {
+  document.getElementById('tuesday-list').innerHTML = SESSIONS.filter(s=>s.day==='Tuesday').map(renderCard).join('');
+  document.getElementById('thursday-list').innerHTML = SESSIONS.filter(s=>s.day==='Thursday').map(renderCard).join('');
+}
+
+function openSheet(sid) {
+  activeSess = SESSIONS.find(s=>s.id===sid);
+  renderForm();
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function bgDismiss(e) { if(e.target.id==='overlay') closeSheet(); }
+
+function renderForm() {
+  const s = activeSess;
+  document.getElementById('sheet-body').innerHTML = `
+    <span class="sheet-type">🀄 Shanghai</span>
+    <div class="sheet-title">${s.day}, ${s.date}</div>
+    <div class="sheet-meta">📅 ${s.day}, ${s.date} · ${s.slot}<br>📍 ${s.venue}</div>
+    <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
+    <div class="field-2">
+      <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
+      <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="summary-box">
+      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v">Shanghai · ${s.day}, ${s.date}</span></div>
+      <div class="sum-row"><span class="sum-k">Time</span><span class="sum-v">${s.slot}</span></div>
+      <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">${s.venue}</span></div>
+    </div>
+    <button class="btn-book" id="book-btn" onclick="confirmBooking()">Confirm My Spot</button>
+  `;
+}
+
+function confirmBooking() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  if(!name||!email||!phone){alert('Please fill in all fields.');return;}
+  if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
+  const btn = document.getElementById('book-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Confirming…';
+  const ref = 'SH-' + Math.floor(1000+Math.random()*9000);
+  fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({action:'add',name,email,phone,experience:'N/A',
+      session:'Shanghai '+activeSess.day+' '+activeSess.date+' '+activeSess.slot,date:activeSess.date,
+      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountPaid:'100 AED'})
+  }).catch(()=>{});
+  document.getElementById('sheet-body').innerHTML = `
+    <div class="success">
+      <span class="succ-emoji">🎉</span>
+      <div class="succ-title">You're booked!</div>
+      <p class="succ-body">Your spot at <strong>Shanghai · ${activeSess.day}, ${activeSess.date} · ${activeSess.slot}</strong><br>at ${activeSess.venue} is confirmed.<br>Remember: 50 AED redeemable on food! 🍽</p>
+      <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
+      <a href="https://pay.nomodapp.com/en/l/758832dc8e5e48da" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#1A7A6E;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem">💳 Pay Now via Nomod</button></a>
+    <button class="btn-done" onclick="closeSheet()">Done ✓</button>
+    </div>`;
+}
+
+renderSessions();
+</script>
+<footer>🀄 The Mahjong Boutique · Dubai, UAE</footer>
+</body>
+</html>

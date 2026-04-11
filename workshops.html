@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta property="og:title" content="Mahjong Workshops — The Mahjong Boutique">
+<meta property="og:description" content="Learn Mahjong in small group workshops. 700 AED for 4 classes. Weekdays & weekends in Dubai.">
+<meta property="og:image" content="https://mbldubai.com/logo.jpeg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mahjong Boutique">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mbldubai.com/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="https://mbldubai.com/logo.jpeg">
+<link rel="apple-touch-icon" href="https://mbldubai.com/logo.jpeg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahjong Workshops — The Mahjong Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#17110A;--ink2:#3A2C1E;--muted:#8A7462;--border:#E5D9CC;
+  --bg:#F8F4EF;--card:#FFFFFF;--red:#B5221A;--gold:#B8880A;
+  --green:#296040;--blue:#3B4EA6;--purple:#6B3FA0;--r:13px;
+  --shadow:0 2px 12px rgba(23,17,10,.08);
+  --shadow-lg:0 8px 32px rgba(23,17,10,.13);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none}
+.brand-tile{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0;display:block}
+.brand-tile img{width:100%;height:100%;object-fit:cover}
+.brand-mbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1}
+.brand-sub{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:1px}
+.nav-home{background:var(--ink);color:#fff;border:none;border-radius:7px;padding:.38rem .8rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+.hero{max-width:600px;margin:0 auto;padding:3.5rem 1.75rem 2.5rem;text-align:center}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--purple);margin-bottom:1rem}
+.hero-rule::before,.hero-rule::after{content:'';width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--purple))}
+.hero-rule::after{transform:scaleX(-1)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;line-height:1.05;color:var(--ink);margin-bottom:.7rem}
+.hero h1 em{font-style:italic;color:var(--purple)}
+.hero-desc{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:380px;margin:0 auto 1.5rem}
+.price-banner{display:inline-block;background:var(--purple);color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;padding:.5rem 1.5rem;border-radius:99px;margin-bottom:1.5rem}
+.hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.htag{display:inline-flex;align-items:center;gap:.3rem;background:var(--card);border:1px solid var(--border);border-radius:99px;padding:.28rem .8rem;font-size:.75rem;font-weight:500;color:var(--ink2)}
+.wrap{max-width:680px;margin:0 auto;padding:0 1.5rem 4rem}
+.sec-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.sec-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.sec-line{flex:1;height:1px;background:var(--border)}
+.sec-badge{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.18rem .6rem;border-radius:99px;white-space:nowrap}
+.badge-weekend{background:#F3EEF8;color:var(--purple)}
+.badge-weekday{background:#EEF2FF;color:var(--blue)}
+.session-group{margin-bottom:2rem}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.15rem 1.4rem;display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:1rem;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .18s;position:relative;overflow:hidden;margin-bottom:.6rem}
+.scard:last-child{margin-bottom:0}
+.scard-stripe{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+.stripe-weekend{background:var(--purple)}
+.stripe-weekday{background:var(--blue)}
+.scard:hover{border-color:#C8BAA8;box-shadow:var(--shadow);transform:translateY(-1px)}
+.sday-icon{font-size:1.8rem;text-align:center}
+.sinfo-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:.18rem}
+.sinfo-meta{font-size:.78rem;color:var(--muted);margin-bottom:.25rem}
+.sinfo-price{font-size:.8rem;font-weight:600;color:var(--gold)}
+
+.sarr{font-size:1rem;color:var(--border)}
+.book-btn{background:var(--purple);color:#fff;border:none;border-radius:99px;padding:.3rem .85rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;white-space:nowrap}
+
+/* OVERLAY */
+.overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
+@media(min-width:540px){.overlay{align-items:center}}
+.overlay.open{opacity:1;pointer-events:all}
+.sheet{background:var(--card);border-radius:20px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;padding:1.8rem 1.8rem 2rem;transform:translateY(20px) scale(.98);transition:transform .32s cubic-bezier(.34,1.4,.64,1);position:relative}
+.overlay.open .sheet{transform:none}
+.sheet-x{position:absolute;top:1.15rem;right:1.15rem;width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;font-size:.88rem;color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:background .15s}
+.sheet-x:hover{background:var(--border)}
+.sheet-type{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .65rem;border-radius:99px;margin-bottom:.55rem;background:#F3EEF8;color:var(--purple)}
+.sheet-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:.2rem}
+.sheet-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:1.4rem}
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);margin-bottom:.3rem}
+.field input,.field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none;appearance:none;transition:border-color .18s,box-shadow .18s}
+.field input:focus,.field select:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(107,63,160,.1);background:var(--card)}
+.field-2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.divider{height:1px;background:var(--border);margin:1.1rem 0}
+.summary-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.1rem}
+.sum-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.81rem;margin-bottom:.3rem}
+.sum-row:last-child{margin-bottom:0}
+.sum-k{color:var(--muted)}
+.sum-v{font-weight:600}
+.btn-book{width:100%;background:var(--purple);color:#fff;border:none;border-radius:10px;padding:.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem;transition:background .18s,transform .18s}
+.btn-book:hover:not(:disabled){background:#5A2E8A;transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-book:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.success{text-align:center;padding:.5rem 0}
+.succ-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem}
+.succ-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.succ-body{color:var(--muted);font-size:.86rem;line-height:1.65;margin-bottom:1.3rem}
+.succ-ref{background:var(--bg);border:1.5px dashed var(--border);border-radius:10px;padding:.7rem 1rem;margin-bottom:1.3rem}
+.succ-ref-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--purple);letter-spacing:.04em}
+.btn-done{background:var(--green);color:#fff;border:none;border-radius:10px;padding:.72rem 2rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer}
+footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:520px){
+  .scard{grid-template-columns:40px 1fr}
+  .sright{grid-column:2;flex-direction:row;align-items:center}
+  .field-2{grid-template-columns:1fr}
+  nav{padding:0 1rem}
+  .brand-sub{display:none}
+}
+
+.pay-btn{display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:.65rem;transition:background .18s,transform .18s}
+.pay-btn:hover{background:#1D5237;transform:translateY(-1px)}
+.pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.5rem}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand">
+    <div class="brand-tile"><img src="https://mbldubai.com/logo.jpeg" alt="The Mahjong Boutique Logo" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:7px"></div>
+    <div>
+      <div class="brand-mbl">The Mahjong Boutique</div>
+      <div class="brand-sub">Workshops</div>
+    </div>
+  </div>
+  <a href="/" class="nav-home">← Back</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-rule">The Mahjong Boutique</div>
+  <h1>Mahjong<br><em>Workshops</em></h1>
+  <p class="hero-desc">Learn Mahjong in intimate small-group sessions with expert guidance. Perfect for beginners and improvers alike.</p>
+  <div class="price-banner">AED 700 — 4 Classes</div>
+  <div class="hero-tags">
+    <span class="htag">⏱ 2 hours per class</span>
+    <span class="htag">📍 JLT & Business Bay</span>
+    
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="session-group">
+    <div class="sec-head">
+      <span class="sec-label">2 Weekends Package</span>
+      <div class="sec-line"></div>
+      <span class="sec-badge badge-weekend">Sat & Sun</span>
+    </div>
+    <div id="weekend-list"></div>
+  </div>
+  <div class="session-group">
+    <div class="sec-head">
+      <span class="sec-label">Morning Packages</span>
+      <div class="sec-line"></div>
+      <span class="sec-badge badge-weekday">April</span>
+    </div>
+    <div id="weekday-morning-list"></div>
+  </div>
+  <div class="session-group">
+    <div class="sec-head">
+      <span class="sec-label">Evening Packages</span>
+      <div class="sec-line"></div>
+      <span class="sec-badge badge-weekday">April</span>
+    </div>
+    <div id="weekday-evening-list"></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="bgDismiss(event)">
+  <div class="sheet" id="sheet">
+    <button class="sheet-x" onclick="closeSheet()">✕</button>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
+
+const SESSIONS = [
+  // Weekends
+  {id:'w1',type:'weekend',day:'2 Weekends Package',icon:'🌅',
+    time:'3:00 – 5:00 PM',venue:'Moshi JLT',
+    days:'Weekend 1: Sat 19 & Sun 20 Apr · Weekend 2: Sat 26 & Sun 27 Apr',
+    classes:'4 classes across 2 weekends',
+    week1:'Sat 19 Apr & Sun 20 Apr', week2:'Sat 26 Apr & Sun 27 Apr'},
+  // Morning Week 1
+  {id:'m1',type:'weekday-morning',day:'Morning Package — Week 1',icon:'☀️',
+    time:'12:00 – 2:00 PM',venue:'Dishtrict',
+    days:'Mon 14, Wed 16, Thu 17, Fri 18 Apr',
+    dates:'Mon 14 · Wed 16 · Thu 17 · Fri 18 Apr',
+    classes:'4 classes'},
+  // Morning Week 2
+  {id:'m2',type:'weekday-morning',day:'Morning Package — Week 2',icon:'☀️',
+    time:'12:00 – 2:00 PM',venue:'Dishtrict',
+    days:'Mon 21, Wed 23, Thu 24, Fri 25 Apr',
+    dates:'Mon 21 · Wed 23 · Thu 24 · Fri 25 Apr',
+    classes:'4 classes'},
+  // Evening Week 1
+  {id:'e1',type:'weekday-evening',day:'Evening Package — Week 1',icon:'🌙',
+    time:'6:00 – 8:00 PM',venue:'Moshi JLT',
+    days:'Mon 14, Wed 16, Thu 17, Fri 18 Apr',
+    dates:'Mon 14 · Wed 16 · Thu 17 · Fri 18 Apr',
+    classes:'4 classes'},
+  // Evening Week 2
+  {id:'e2',type:'weekday-evening',day:'Evening Package — Week 2',icon:'🌙',
+    time:'6:00 – 8:00 PM',venue:'Moshi JLT',
+    days:'Mon 21, Wed 23, Thu 24, Fri 25 Apr',
+    dates:'Mon 21 · Wed 23 · Thu 24 · Fri 25 Apr',
+    classes:'4 classes'},
+];
+
+let activeSess = SESSIONS[0];
+
+function renderCard(s) {
+  const stripeClass = s.type === 'weekend' ? 'stripe-weekend' : 'stripe-weekday';
+  return `<div class="scard" onclick="openSheet('${s.id}')">
+    <div class="scard-stripe ${stripeClass}"></div>
+    <div class="sday-icon">${s.icon}</div>
+    <div>
+      <div class="sinfo-title">${s.day}</div>
+      <div class="sinfo-meta">${s.time} &nbsp;·&nbsp; 📍 ${s.venue}</div>
+    </div>
+    <div class="sright">
+      <button class="book-btn">Book →</button>
+    </div>
+  </div>`;
+}
+
+function renderSessions() {
+  document.getElementById('weekend-list').innerHTML = SESSIONS.filter(s=>s.type==='weekend').map(renderCard).join('');
+  document.getElementById('weekday-morning-list').innerHTML = SESSIONS.filter(s=>s.type==='weekday-morning').map(renderCard).join('');
+  document.getElementById('weekday-evening-list').innerHTML = SESSIONS.filter(s=>s.type==='weekday-evening').map(renderCard).join('');
+}
+
+function openSheet(sid) {
+  activeSess = SESSIONS.find(s=>s.id===sid);
+  renderForm();
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function bgDismiss(e) { if(e.target.id==='overlay') closeSheet(); }
+
+function renderForm() {
+  const s = activeSess;
+  document.getElementById('sheet-body').innerHTML = `
+    <span class="sheet-type">🀄 Workshop Package</span>
+    <div class="sheet-title">${s.day}</div>
+    <div class="sheet-meta">📅 ${s.dates ? s.dates : s.days}<br>⏰ ${s.time} &nbsp;·&nbsp; 📍 ${s.venue}</div>
+    <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
+    <div class="field-2">
+      <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
+      <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
+    </div>
+    <div class="field" style="margin-top:.9rem">
+      <label>Experience Level</label>
+      <select id="f-xp">
+        <option value="beginner">🌱 Beginner</option>
+        <option value="intermediate" selected>🀄 Intermediate</option>
+        <option value="advanced">🏆 Advanced</option>
+      </select>
+    </div>
+    <div class="divider"></div>
+    <div class="summary-box">
+      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v">${s.day} Workshop</span></div>
+      <div class="sum-row"><span class="sum-k">Time</span><span class="sum-v">${s.time}</span></div>
+      <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">${s.venue}</span></div>
+      <div class="sum-row"><span class="sum-k">Price</span><span class="sum-v" style="color:var(--gold)">700 AED</span></div>
+    </div>
+    <button class="btn-book" id="book-btn" onclick="confirmBooking()">Confirm My Spot</button>
+  `;
+}
+
+function confirmBooking() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const xp = document.getElementById('f-xp').value;
+  if(!name||!email||!phone){alert('Please fill in all fields.');return;}
+  if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
+
+  // Capture weekend dates if weekend package
+  let dateInfo = 'Weekly ' + activeSess.days;
+  if (activeSess.type === 'weekend') {
+    const sat1 = document.getElementById('f-sat1').options[document.getElementById('f-sat1').selectedIndex].text;
+    const sun1 = document.getElementById('f-sun1').options[document.getElementById('f-sun1').selectedIndex].text;
+    const sat2 = document.getElementById('f-sat2').options[document.getElementById('f-sat2').selectedIndex].text;
+    const sun2 = document.getElementById('f-sun2').options[document.getElementById('f-sun2').selectedIndex].text;
+    dateInfo = `Wknd 1: ${sat1} & ${sun1} | Wknd 2: ${sat2} & ${sun2}`;
+  }
+
+  const btn = document.getElementById('book-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Confirming…';
+  const ref = 'WS-' + Math.floor(1000+Math.random()*9000);
+  fetch(SHEETS_URL, {method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({action:'add',name,email,phone,experience:xp,
+      session:activeSess.day,date:dateInfo,
+      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountPaid:'700 AED'})
+  }).catch(()=>{});
+  document.getElementById('sheet-body').innerHTML = `
+    <div class="success">
+      <span class="succ-emoji">🎉</span>
+      <div class="succ-title">You're booked!</div>
+      <p class="succ-body">Your spot in the <strong>${activeSess.day}</strong><br>${activeSess.time.split(' · ').pop()} · ${activeSess.venue}<br>is confirmed. We'll be in touch!</p>
+      <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
+      <a href="https://pay.nomodapp.com/en/l/cf8bd60781ef418d" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#6B3FA0;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem">💳 Pay Now via Nomod</button></a>
+    <button class="btn-done" onclick="closeSheet()">Done ✓</button>
+    </div>`;
+}
+
+renderSessions();
+</script>
+<footer>🀄 The Mahjong Boutique · Dubai, UAE</footer>
+</body>
+</html>

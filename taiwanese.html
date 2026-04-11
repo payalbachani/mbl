@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta property="og:title" content="Taiwanese Mahjong Bridging Class — The Mahjong Boutique">
+<meta property="og:description" content="Standardize your scoring and gameplay. A 2-hour bridging class for players with prior Taiwanese Mahjong knowledge. 200 AED.">
+<meta property="og:image" content="https://mbldubai.com/logo.jpeg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Mahjong Boutique">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mbldubai.com/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="https://mbldubai.com/logo.jpeg">
+<link rel="apple-touch-icon" href="https://mbldubai.com/logo.jpeg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taiwanese Mahjong Bridging Class — The Mahjong Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#17110A;--ink2:#3A2C1E;--muted:#8A7462;--border:#E5D9CC;
+  --bg:#F8F4EF;--card:#FFFFFF;--red:#B5221A;--gold:#B8880A;
+  --green:#296040;--warm:#8B4513;--r:13px;
+  --shadow:0 2px 12px rgba(23,17,10,.08);
+  --shadow-lg:0 8px 32px rgba(23,17,10,.13);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem}
+.brand{display:flex;align-items:center;gap:.55rem}
+.brand-tile{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0;display:block}
+.brand-tile img{width:100%;height:100%;object-fit:cover}
+.brand-mbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1}
+.brand-sub{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:1px}
+.nav-home{background:var(--ink);color:#fff;border:none;border-radius:7px;padding:.38rem .8rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+
+/* HERO */
+.hero{max-width:620px;margin:0 auto;padding:3.5rem 1.75rem 2.5rem;text-align:center}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--warm);margin-bottom:1rem}
+.hero-rule::before,.hero-rule::after{content:'';width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--warm))}
+.hero-rule::after{transform:scaleX(-1)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5.5vw,3.4rem);font-weight:700;line-height:1.08;color:var(--ink);margin-bottom:.75rem}
+.hero h1 em{font-style:italic;color:var(--warm)}
+.community-tag{display:inline-flex;align-items:center;gap:.4rem;background:#FFF8F0;border:1px solid #E8C8A0;border-radius:99px;padding:.32rem .9rem;font-size:.82rem;font-weight:600;color:var(--warm);margin-bottom:1.2rem}
+.hero-desc{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:400px;margin:0 auto 1.4rem}
+.price-banner{display:inline-block;background:var(--warm);color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;padding:.5rem 1.5rem;border-radius:99px;margin-bottom:1.5rem}
+
+/* WHAT YOU GET */
+.features{max-width:560px;margin:0 auto 2.5rem;display:flex;flex-direction:column;gap:.6rem;text-align:left;padding:0 1.5rem}
+.feat{display:flex;align-items:flex-start;gap:.75rem;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem}
+.feat-icon{font-size:1.2rem;flex-shrink:0;margin-top:.05rem}
+.feat-text{font-size:.88rem;color:var(--ink2);line-height:1.5}
+.feat-text strong{color:var(--ink);display:block;margin-bottom:.1rem}
+
+/* BOOK CARD */
+.book-wrap{max-width:560px;margin:0 auto;padding:0 1.5rem 4rem}
+.book-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem 1.6rem;position:relative;overflow:hidden}
+.book-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--warm);border-radius:4px 0 0 4px}
+.book-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:.25rem}
+.book-card-meta{font-size:.82rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.5}
+.btn-open{background:var(--warm);color:#fff;border:none;border-radius:99px;padding:.45rem 1.3rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .18s,transform .18s}
+.btn-open:hover{background:#6B3410;transform:translateY(-1px)}
+
+/* OVERLAY / SHEET */
+.overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
+@media(min-width:540px){.overlay{align-items:center}}
+.overlay.open{opacity:1;pointer-events:all}
+.sheet{background:var(--card);border-radius:20px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;padding:1.8rem 1.8rem 2rem;transform:translateY(20px) scale(.98);transition:transform .32s cubic-bezier(.34,1.4,.64,1);position:relative}
+.overlay.open .sheet{transform:none}
+.sheet-x{position:absolute;top:1.15rem;right:1.15rem;width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;font-size:.88rem;color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:background .15s}
+.sheet-x:hover{background:var(--border)}
+.sheet-type{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .65rem;border-radius:99px;margin-bottom:.55rem;background:#FFF0E5;color:var(--warm)}
+.sheet-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:.2rem}
+.sheet-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:1.4rem}
+
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);margin-bottom:.3rem}
+.field input,.field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none;appearance:none;transition:border-color .18s,box-shadow .18s}
+.field input:focus,.field select:focus{border-color:var(--warm);box-shadow:0 0 0 3px rgba(139,69,19,.1);background:var(--card)}
+.field-2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.divider{height:1px;background:var(--border);margin:1.1rem 0}
+
+.summary-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.1rem}
+.sum-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.81rem;margin-bottom:.3rem}
+.sum-row:last-child{margin-bottom:0}
+.sum-k{color:var(--muted)}
+.sum-v{font-weight:600}
+
+.btn-book{width:100%;background:var(--warm);color:#fff;border:none;border-radius:10px;padding:.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem;transition:background .18s,transform .18s,box-shadow .18s}
+.btn-book:hover:not(:disabled){background:#6B3410;transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-book:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+.success{text-align:center;padding:.5rem 0}
+.succ-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem}
+.succ-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.succ-body{color:var(--muted);font-size:.86rem;line-height:1.65;margin-bottom:1.3rem}
+.succ-ref{background:var(--bg);border:1.5px dashed var(--border);border-radius:10px;padding:.7rem 1rem;margin-bottom:1.3rem}
+.succ-ref-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--warm);letter-spacing:.04em}
+.btn-done{background:var(--green);color:#fff;border:none;border-radius:10px;padding:.72rem 2rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .18s}
+.btn-done:hover{background:#1D5237}
+
+footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
+
+@media(max-width:520px){
+  nav{padding:0 1rem}
+  .brand-sub{display:none}
+  .field-2{grid-template-columns:1fr}
+}
+
+.pay-btn{display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:.65rem;transition:background .18s,transform .18s}
+.pay-btn:hover{background:#1D5237;transform:translateY(-1px)}
+.pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.5rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <div class="brand-tile"><img src="https://mbldubai.com/logo.jpeg" alt="The Mahjong Boutique Logo" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:7px"></div>
+    <div>
+      <div class="brand-mbl">The Mahjong Boutique</div>
+      <div class="brand-sub">Bridging Class</div>
+    </div>
+  </div>
+  <a href="/" class="nav-home">← Back</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-rule">The Mahjong Boutique Community</div>
+  <div class="community-tag">😊 Community Class</div>
+  <h1>Taiwanese Mahjong<br><em>Bridging Class</em></h1>
+  <p class="hero-desc">A focused 2-hour session to standardize scoring and gameplay for our community. Designed for players with prior Taiwanese Mahjong knowledge.</p>
+  <div class="price-banner">200 AED per person</div>
+</div>
+
+<div class="features">
+  <div class="feat">
+    <span class="feat-icon">🀄</span>
+    <div class="feat-text"><strong>Standardize Scoring & Gameplay</strong>Align on scoring rules and gameplay flow across the community.</div>
+  </div>
+  <div class="feat">
+    <span class="feat-icon">📋</span>
+    <div class="feat-text"><strong>Review Community-Specific Rules</strong>Go through differences and community rules in detail.</div>
+  </div>
+  <div class="feat">
+    <span class="feat-icon">🎓</span>
+    <div class="feat-text"><strong>Prior Knowledge Required</strong>This class is for players who already have Taiwanese Mahjong experience.</div>
+  </div>
+  <div class="feat">
+    <span class="feat-icon">⏱</span>
+    <div class="feat-text"><strong>2-Hour Session</strong>An intensive, focused bridging class — in and out with clarity.</div>
+  </div>
+</div>
+
+<div class="book-wrap">
+  <div class="book-card">
+    <div class="book-card-title">Taiwanese Mahjong Bridging Class</div>
+    <div class="book-card-meta">
+      🀄 The Mahjong Boutique Community &nbsp;·&nbsp; ⏱ 2 hours<br>
+      💰 200 AED per person
+    </div>
+    <button class="btn-open" onclick="openSheet()">Book Now →</button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="bgDismiss(event)">
+  <div class="sheet" id="sheet">
+    <button class="sheet-x" onclick="closeSheet()">✕</button>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
+
+function openSheet() {
+  renderForm();
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function bgDismiss(e) { if(e.target.id==='overlay') closeSheet(); }
+
+function renderForm() {
+  document.getElementById('sheet-body').innerHTML = `
+    <span class="sheet-type">😊 Community</span>
+    <div class="sheet-title">Taiwanese Bridging Class</div>
+    <div class="sheet-meta">⏱ 2-hour session &nbsp;·&nbsp; 💰 200 AED per person<br>For players with prior Taiwanese Mahjong knowledge</div>
+    <div class="field">
+      <label>Full Name</label>
+      <input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name">
+    </div>
+    <div class="field-2">
+      <div class="field" style="margin-bottom:0">
+        <label>Email</label>
+        <input id="f-email" type="email" placeholder="you@email.com">
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <label>WhatsApp</label>
+        <input id="f-phone" type="tel" placeholder="050 123 4567">
+      </div>
+    </div>
+    <div class="field" style="margin-top:.9rem">
+      <label>Taiwanese Mahjong Experience</label>
+      <select id="f-xp">
+        <option value="Some experience">Some experience</option>
+        <option value="Intermediate" selected>Intermediate</option>
+        <option value="Experienced">Experienced</option>
+      </select>
+    </div>
+    <div class="divider"></div>
+    <div class="summary-box">
+      <div class="sum-row"><span class="sum-k">Class</span><span class="sum-v">Taiwanese Bridging Class</span></div>
+      <div class="sum-row"><span class="sum-k">Duration</span><span class="sum-v">2 hours</span></div>
+      <div class="sum-row"><span class="sum-k">Price</span><span class="sum-v" style="color:var(--warm)">200 AED per person</span></div>
+    </div>
+    <button class="btn-book" id="book-btn" onclick="confirmBooking()">Confirm My Spot</button>
+  `;
+}
+
+function confirmBooking() {
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const xp    = document.getElementById('f-xp').value;
+  if(!name||!email||!phone){alert('Please fill in all fields.');return;}
+  if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
+
+  const btn = document.getElementById('book-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span> Confirming…';
+
+  const ref = 'TW-' + Math.floor(1000+Math.random()*9000);
+  fetch(SHEETS_URL, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      action:'add', name, email, phone,
+      experience: xp,
+      session: 'Taiwanese Mahjong Bridging Class',
+      date: 'TBC', time: '2-hour session',
+      venue: 'The Mahjong Boutique',
+      ref, bookedAt: new Date().toLocaleString('en-GB'),
+      amountPaid: '200 AED'
+    })
+  }).catch(()=>{});
+
+  document.getElementById('sheet-body').innerHTML = `
+    <div class="success">
+      <span class="succ-emoji">🎉</span>
+      <div class="succ-title">You're in!</div>
+      <p class="succ-body">
+        Your spot at the <strong>Taiwanese Mahjong Bridging Class</strong> is confirmed.
+        We'll be in touch with session details. See you at the table! 😊
+      </p>
+      <div class="succ-ref">
+        <div class="succ-ref-lbl">Booking Reference</div>
+        <div class="succ-ref-val">${ref}</div>
+      </div>
+      <a href="https://pay.nomodapp.com/en/l/beddfc1a014f4083" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#8B4513;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem">💳 Pay Now via Nomod</button></a>
+    <button class="btn-done" onclick="closeSheet()">Done ✓</button>
+    </div>`;
+}
+</script>
+
+<footer>🀄 The Mahjong Boutique · Dubai, UAE</footer>
+</body>
+</html>
