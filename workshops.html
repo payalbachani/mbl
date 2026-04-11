@@ -305,6 +305,10 @@ function confirmBooking() {
       <div class="succ-title">You're booked!</div>
       <p class="succ-body">Your spot in the <strong>${activeSess.day}</strong><br>${activeSess.time.split(' · ').pop()} · ${activeSess.venue}<br>is confirmed. We'll be in touch!</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
+      <div style="background:#FFF8E8;border:1.5px solid #F0C040;border-radius:10px;padding:.85rem 1rem;margin-bottom:.9rem;font-size:.82rem;color:#7A5A00;line-height:1.55;text-align:left">
+        🀄 <strong>This is a 4-class workshop package — one payment per person.</strong><br>
+        If you are booking on behalf of someone else, please ask them to make their own separate booking.
+      </div>
       <a href="https://pay.nomodapp.com/en/l/cf8bd60781ef418d" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#6B3FA0;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem">💳 Pay Now via Nomod</button></a>
     <button class="btn-done" onclick="closeSheet()">Done ✓</button>
     </div>`;
