@@ -449,7 +449,7 @@ function confirmBooking(){
   const booking={name,email,phone,experience:selectedXp,attended:false,ref,booked:new Date().toLocaleString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})};
 
   // Save to Google Sheets
-  const amountPaid = activeSess.type === 'guided' ? '100 AED' : '150 AED';
+  const amountDue = activeSess.type === 'guided' ? '100 AED' : '150 AED';
   fetch(SHEETS_URL, {
     method:'POST',
     mode:'no-cors',

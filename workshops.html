@@ -305,7 +305,7 @@ function confirmBooking() {
   fetch(SHEETS_URL, {method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
     body: JSON.stringify({action:'add',name,email,phone,experience:xp,
       session:activeSess.day,date:(activeSess.dates ? activeSess.dates : activeSess.days),
-      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountPaid:'700 AED',attendee:attendeeName})
+      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue:'700 AED',attendee:attendeeName})
   }).catch(()=>{});
   // Store booking locally to track duplicates
   if (!activeSess.bookings) activeSess.bookings = [];

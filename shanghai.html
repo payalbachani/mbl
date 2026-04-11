@@ -243,7 +243,7 @@ function confirmBooking() {
   fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({action:'add',name,email,phone,experience:'N/A',
       session:'Shanghai — '+activeSess.day+' '+activeSess.date,date:activeSess.date+' · '+activeSess.slot,
-      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountPaid:'100 AED'})
+      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue:'100 AED'})
   }).catch(()=>{});
   document.getElementById('sheet-body').innerHTML = `
     <div class="success">
