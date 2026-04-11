@@ -450,6 +450,10 @@ function confirmBooking(){
 
   // Save to Google Sheets
   const amountDue = activeSess.type === 'guided' ? '100 AED' : '150 AED';
+  const nomodLink = activeSess.type === 'guided'
+    ? 'https://pay.nomodapp.com/en/l/8df13f42151245ec'
+    : 'https://pay.nomodapp.com/en/l/0df35c7253e14f4a';
+
   fetch(SHEETS_URL, {
     method:'POST',
     mode:'no-cors',
@@ -464,7 +468,7 @@ function confirmBooking(){
       venue: activeSess.venue,
       ref,
       bookedAt: new Date().toLocaleString('en-GB'),
-      amountPaid
+      amountDue
     })
   }).catch(()=>{}); // silent fail — booking still works offline
 
@@ -474,11 +478,12 @@ function confirmBooking(){
     <div class="success">
       <span class="succ-emoji">🎉</span>
       <div class="succ-title">You're confirmed!</div>
-      <p class="succ-body">Your spot at <strong>${activeSess.title}</strong><br>${activeSess.dow}, ${activeSess.dayNum} ${activeSess.month} · ${activeSess.time}<br>is locked in. See you at the table!</p>
+      <p class="succ-body">Your spot at <strong>${activeSess.title}</strong><br>${activeSess.dow}, ${activeSess.dayNum} ${activeSess.month} · ${activeSess.time}<br>Complete your payment below.</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
-
-      ' + (activeSess.type === 'guided' ? '<a href="https://pay.nomodapp.com/en/l/8df13f42151245ec" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#17110A;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:DM Sans,sans-serif;font-size:.95rem;font-weight:600;cursor:pointer">💳 Pay Now via Nomod</button></a>' : '<a href="https://pay.nomodapp.com/en/l/0df35c7253e14f4a" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#C07800;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:DM Sans,sans-serif;font-size:.95rem;font-weight:600;cursor:pointer">💳 Pay Now via Nomod</button></a>') + '
-      <button class="btn-done" onclick="closeSheet()">Done ✓</button>
+      <a href="${nomodLink}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem">
+        <button class="pay-btn">💳 Pay Now via Nomod</button>
+      </a>
+      <p class="pay-note">Secure payment powered by Nomod</p>
     </div>`;
 }
 
