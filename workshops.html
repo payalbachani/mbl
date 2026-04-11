@@ -181,31 +181,31 @@ const SESSIONS = [
     days:'Weekend 1: Sat 18 & Sun 19 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
     dates:'Weekend 1: Sat 18 & Sun 19 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
     classes:'4 classes across 2 weekends',
-    week1:'Sat 18 Apr & Sun 19 Apr', week2:'Sat 25 Apr & Sun 26 Apr'},
+    week1:'Sat 18 Apr & Sun 19 Apr', week2:'Sat 25 Apr & Sun 26 Apr', bookings:[]},
   // Morning Week 1
   {id:'m1',type:'weekday-morning',day:'Morning Package — Week 1',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Mon 13, Wed 15, Thu 16, Fri 17 Apr',
     dates:'Mon 13 · Wed 15 · Thu 16 · Fri 17 Apr',
-    classes:'4 classes'},
+    classes:'4 classes', bookings:[]},
   // Morning Week 2
   {id:'m2',type:'weekday-morning',day:'Morning Package — Week 2',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
     dates:'Mon 20 · Wed 22 · Thu 23 · Fri 24 Apr',
-    classes:'4 classes'},
+    classes:'4 classes', bookings:[]},
   // Evening Week 1
   {id:'e1',type:'weekday-evening',day:'Evening Package — Week 1',icon:'🌙',
     time:'6:00 – 8:00 PM',venue:'Moshi JLT',
     days:'Mon 13, Wed 15, Thu 16, Fri 17 Apr',
     dates:'Mon 13 · Wed 15 · Thu 16 · Fri 17 Apr',
-    classes:'4 classes'},
+    classes:'4 classes', bookings:[]},
   // Evening Week 2
   {id:'e2',type:'weekday-evening',day:'Evening Package — Week 2',icon:'🌙',
     time:'6:00 – 8:00 PM',venue:'Moshi JLT',
     days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
     dates:'Mon 20 · Wed 22 · Thu 23 · Fri 24 Apr',
-    classes:'4 classes'},
+    classes:'4 classes', bookings:[]},
 ];
 
 let activeSess = SESSIONS[0];
@@ -249,7 +249,11 @@ function renderForm() {
     <span class="sheet-type">🀄 Workshop Package</span>
     <div class="sheet-title">${s.day}</div>
     <div class="sheet-meta">📅 ${s.dates ? s.dates : s.days}<br>⏰ ${s.time} &nbsp;·&nbsp; 📍 ${s.venue}</div>
-    <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
+    <div class="field"><label>Your Name (person paying)</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
+    <div class="field">
+      <label>Booking for someone else? Enter their name <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">(optional)</span></label>
+      <input id="f-bookingfor" type="text" placeholder="Leave blank if booking for yourself">
+    </div>
     <div class="field-2">
       <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
       <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
@@ -281,6 +285,10 @@ function confirmBooking() {
   if(!name||!email||!phone){alert('Please fill in all fields.');return;}
   if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
 
+  // Check if booking for someone else
+  const bookingFor = document.getElementById('f-bookingfor') ? document.getElementById('f-bookingfor').value.trim() : '';
+  const attendeeName = bookingFor || name;
+
   // Capture weekend dates if weekend package
   let dateInfo = 'Weekly ' + activeSess.days;
   if (activeSess.type === 'weekend') {
@@ -297,13 +305,17 @@ function confirmBooking() {
   fetch(SHEETS_URL, {method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
     body: JSON.stringify({action:'add',name,email,phone,experience:xp,
       session:activeSess.day,date:(activeSess.dates ? activeSess.dates : activeSess.days),
-      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountPaid:'700 AED'})
+      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountPaid:'700 AED',attendee:attendeeName})
   }).catch(()=>{});
+  // Store booking locally to track duplicates
+  if (!activeSess.bookings) activeSess.bookings = [];
+  activeSess.bookings.push({name, email, phone, ref});
+
   document.getElementById('sheet-body').innerHTML = `
     <div class="success">
       <span class="succ-emoji">🎉</span>
       <div class="succ-title">You're booked!</div>
-      <p class="succ-body">Your spot in the <strong>${activeSess.day}</strong><br>${activeSess.time.split(' · ').pop()} · ${activeSess.venue}<br>is confirmed. We'll be in touch!</p>
+      <p class="succ-body">Booking confirmed for <strong>${attendeeName}</strong> in the <strong>${activeSess.day}</strong><br>${activeSess.time.split(' · ').pop()} · ${activeSess.venue}<br>is confirmed. We'll be in touch!</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
       <div style="background:#FFF8E8;border:1.5px solid #F0C040;border-radius:10px;padding:.85rem 1rem;margin-bottom:.9rem;font-size:.82rem;color:#7A5A00;line-height:1.55;text-align:left">
         🀄 <strong>This is a 4-class workshop package — one payment per person.</strong><br>
