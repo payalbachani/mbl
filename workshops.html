@@ -127,7 +127,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 
 <div class="hero">
   <div class="hero-rule">The Mahjong Boutique</div>
-  <h1>Mahjong<br><em>Workshops</em></h1>
+  <h1>Mahjong<br><em>Learning Workshop</em></h1>
   <p class="hero-desc">Learn Mahjong in intimate small-group sessions with expert guidance. Perfect for beginners and improvers alike.</p>
   <div class="price-banner">AED 700 — 4 Classes</div>
   <div class="hero-tags">
@@ -182,17 +182,17 @@ const SESSIONS = [
     dates:'Weekend 1: Sat 18 & Sun 19 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
     classes:'4 classes across 2 weekends',
     week1:'Sat 18 Apr & Sun 19 Apr', week2:'Sat 25 Apr & Sun 26 Apr', bookings:[]},
-  // Morning Week 1
-  {id:'m1',type:'weekday-morning',day:'Morning Package — Week 1',icon:'☀️',
-    time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 13, Wed 15, Thu 16, Fri 17 Apr',
-    dates:'Mon 13 · Wed 15 · Thu 16 · Fri 17 Apr',
-    classes:'4 classes', bookings:[]},
   // Morning Week 2
   {id:'m2',type:'weekday-morning',day:'Morning Package — Week 2',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
     dates:'Mon 20 · Wed 22 · Thu 23 · Fri 24 Apr',
+    classes:'4 classes', bookings:[]},
+  // Morning Week 3
+  {id:'m3',type:'weekday-morning',day:'Morning Package — Week 3',icon:'☀️',
+    time:'12:00 – 2:00 PM',venue:'Dishtrict',
+    days:'Mon 27 Apr, Wed 29 Apr, Thu 30 Apr, Fri 1 May',
+    dates:'Mon 27th Apr · Wed 29th Apr · Thu 30th Apr · Fri 1st May',
     classes:'4 classes', bookings:[]},
   // Evening Week 1
   {id:'e1',type:'weekday-evening',day:'Evening Package — Week 1',icon:'🌙',
@@ -205,6 +205,12 @@ const SESSIONS = [
     time:'6:00 – 8:00 PM',venue:'Moshi JLT',
     days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
     dates:'Mon 20 · Wed 22 · Thu 23 · Fri 24 Apr',
+    classes:'4 classes', bookings:[]},
+  // Evening Week 3
+  {id:'e3',type:'weekday-evening',day:'Evening Package — Week 3',icon:'🌙',
+    time:'6:00 – 8:00 PM',venue:'Moshi JLT',
+    days:'Mon 27 Apr, Wed 29 Apr, Thu 30 Apr, Fri 1 May',
+    dates:'Mon 27th Apr · Wed 29th Apr · Thu 30th Apr · Fri 1st May',
     classes:'4 classes', bookings:[]},
 ];
 
@@ -285,11 +291,9 @@ function confirmBooking() {
   if(!name||!email||!phone){alert('Please fill in all fields.');return;}
   if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
 
-  // Check if booking for someone else
   const bookingFor = document.getElementById('f-bookingfor') ? document.getElementById('f-bookingfor').value.trim() : '';
   const attendeeName = bookingFor || name;
 
-  // Capture weekend dates if weekend package
   let dateInfo = 'Weekly ' + activeSess.days;
   if (activeSess.type === 'weekend') {
     const sat1 = document.getElementById('f-sat1').options[document.getElementById('f-sat1').selectedIndex].text;
@@ -307,7 +311,6 @@ function confirmBooking() {
       session:activeSess.day,date:(activeSess.dates ? activeSess.dates : activeSess.days),
       time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue:'700 AED',attendee:attendeeName})
   }).catch(()=>{});
-  // Store booking locally to track duplicates
   if (!activeSess.bookings) activeSess.bookings = [];
   activeSess.bookings.push({name, email, phone, ref});
 
