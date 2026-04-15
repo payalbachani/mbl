@@ -57,7 +57,6 @@ nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.9
 .sinfo-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:.18rem}
 .sinfo-meta{font-size:.78rem;color:var(--muted);margin-bottom:.25rem}
 .sinfo-price{font-size:.8rem;font-weight:600;color:var(--gold)}
-
 .book-btn{background:var(--teal);color:#fff;border:none;border-radius:99px;padding:.3rem .85rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;white-space:nowrap}
 .overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
 @media(min-width:540px){.overlay{align-items:center}}
@@ -102,7 +101,6 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
   nav{padding:0 1rem}
   .brand-sub{display:none}
 }
-
 .pay-btn{display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:.65rem;transition:background .18s,transform .18s}
 .pay-btn:hover{background:#1D5237;transform:translateY(-1px)}
 .pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.5rem}
@@ -128,7 +126,6 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
   <div class="hero-tags">
     <span class="htag">📅 Tuesdays & Thursdays</span>
     <span class="htag">📍 Dishtrict</span>
-    
   </div>
 </div>
 
@@ -162,12 +159,10 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
 
 const SESSIONS = [
-  // Tuesdays — 1 per week
-  {id:'t1',day:'Tuesday',date:'14 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
-  {id:'t2',day:'Tuesday',date:'14 Apr',slot:'5–7 PM',time:'5:00 – 7:00 PM',venue:'Dishtrict'},
+  // Tuesdays
   {id:'t3',day:'Tuesday',date:'21 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
   {id:'t4',day:'Tuesday',date:'21 Apr',slot:'5–7 PM',time:'5:00 – 7:00 PM',venue:'Dishtrict'},
-  // Thursdays — 1 per week
+  // Thursdays
   {id:'th1',day:'Thursday',date:'16 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
   {id:'th2',day:'Thursday',date:'16 Apr',slot:'5–7 PM',time:'5:00 – 7:00 PM',venue:'Dishtrict'},
   {id:'th3',day:'Thursday',date:'23 Apr',slot:'3–5 PM',time:'3:00 – 5:00 PM',venue:'Dishtrict'},
