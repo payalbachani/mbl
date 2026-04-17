@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta property="og:title" content="Mahjong Workshops — The Mahjong Boutique">
+<meta property="og:title" content="Mahjong Learning Workshop — The Mahjong Boutique">
 <meta property="og:description" content="Learn Mahjong in small group workshops. 700 AED for 4 classes. Weekdays & weekends in Dubai.">
 <meta property="og:image" content="https://mbldubai.com/logo.jpeg">
 <meta property="og:type" content="website">
@@ -12,7 +12,7 @@
 <link rel="icon" type="image/jpeg" href="https://mbldubai.com/logo.jpeg">
 <link rel="apple-touch-icon" href="https://mbldubai.com/logo.jpeg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahjong Workshops — The Mahjong Boutique</title>
+<title>Mahjong Learning Workshop — The Mahjong Boutique</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -60,11 +60,8 @@ nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.9
 .sinfo-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:.18rem}
 .sinfo-meta{font-size:.78rem;color:var(--muted);margin-bottom:.25rem}
 .sinfo-price{font-size:.8rem;font-weight:600;color:var(--gold)}
-
 .sarr{font-size:1rem;color:var(--border)}
 .book-btn{background:var(--purple);color:#fff;border:none;border-radius:99px;padding:.3rem .85rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;white-space:nowrap}
-
-/* OVERLAY */
 .overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
 @media(min-width:540px){.overlay{align-items:center}}
 .overlay.open{opacity:1;pointer-events:all}
@@ -107,7 +104,6 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
   nav{padding:0 1rem}
   .brand-sub{display:none}
 }
-
 .pay-btn{display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:.65rem;transition:background .18s,transform .18s}
 .pay-btn:hover{background:#1D5237;transform:translateY(-1px)}
 .pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.5rem}
@@ -131,39 +127,47 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
   <p class="hero-desc">Learn Mahjong in intimate small-group sessions with expert guidance. Perfect for beginners and improvers alike.</p>
   <div class="price-banner">AED 700 — 4 Classes</div>
   <div class="hero-tags">
-    <span class="htag">⏱ 2 hours per class</span>
-    <span class="htag">📍 JLT & Business Bay</span>
-    
+    <span class="htag">📍 Dubai, UAE</span>
+    <span class="htag">🀄 Small groups</span>
+    <span class="htag">✉️ Instant confirmation</span>
   </div>
 </div>
 
 <div class="wrap">
+
+  <!-- WEEKEND PACKAGE -->
   <div class="session-group">
     <div class="sec-head">
-      <span class="sec-label">2 Weekends Package</span>
+      <span class="sec-label">Weekend Package</span>
       <div class="sec-line"></div>
       <span class="sec-badge badge-weekend">Sat & Sun</span>
     </div>
     <div id="weekend-list"></div>
   </div>
+
+  <!-- MORNING WEEKDAY -->
   <div class="session-group">
     <div class="sec-head">
-      <span class="sec-label">Morning Packages</span>
+      <span class="sec-label">Morning Package</span>
       <div class="sec-line"></div>
-      <span class="sec-badge badge-weekday">April</span>
+      <span class="sec-badge badge-weekday">12:00 – 2:00 PM</span>
     </div>
-    <div id="weekday-morning-list"></div>
+    <div id="morning-list"></div>
   </div>
+
+  <!-- EVENING WEEKDAY -->
   <div class="session-group">
     <div class="sec-head">
-      <span class="sec-label">Evening Packages</span>
+      <span class="sec-label">Evening Package</span>
       <div class="sec-line"></div>
-      <span class="sec-badge badge-weekday">April</span>
+      <span class="sec-badge badge-weekday">Evenings</span>
     </div>
-    <div id="weekday-evening-list"></div>
+    <div id="evening-list"></div>
   </div>
+
 </div>
 
+<!-- OVERLAY -->
 <div class="overlay" id="overlay" onclick="bgDismiss(event)">
   <div class="sheet" id="sheet">
     <button class="sheet-x" onclick="closeSheet()">✕</button>
@@ -173,68 +177,80 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 
 <script>
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
+const NOMOD_LINK = "https://pay.nomodapp.com/en/l/workshop";
 
 const SESSIONS = [
-  // Weekends
-  {id:'w1',type:'weekend',day:'2 Weekends Package',icon:'🌅',
+  // Weekend Package
+  {id:'w1',type:'weekend',day:'2 Weekends Package',icon:'🗓️',
     time:'3:00 – 5:00 PM',venue:'Moshi JLT',
-    days:'Weekend 1: Sat 18 & Sun 19 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
-    dates:'Weekend 1: Sat 18 & Sun 19 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
+    days:'Weekend 1: Sat 19 & Sun 20 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
+    dates:'Weekend 1: Sat 19 & Sun 20 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
     classes:'4 classes across 2 weekends',
-    week1:'Sat 18 Apr & Sun 19 Apr', week2:'Sat 25 Apr & Sun 26 Apr', bookings:[]},
+    week1:'Sat 19 Apr & Sun 20 Apr', week2:'Sat 25 Apr & Sun 26 Apr', bookings:[]},
+
+  // Morning Week 1
+  {id:'m1',type:'weekday-morning',day:'Morning Package — Week 1',icon:'☀️',
+    time:'12:00 – 2:00 PM',venue:'Dishtrict',
+    days:'Mon 13, Wed 15, Thu 16, Fri 17 Apr',
+    dates:'Mon 13th · Wed 15th · Thu 16th · Fri 17th Apr',
+    classes:'4 classes', bookings:[]},
+
   // Morning Week 2
   {id:'m2',type:'weekday-morning',day:'Morning Package — Week 2',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
-    dates:'Mon 20 · Wed 22 · Thu 23 · Fri 24 Apr',
+    dates:'Mon 20th · Wed 22nd · Thu 23rd · Fri 24th Apr',
     classes:'4 classes', bookings:[]},
-  // Morning Week 3
+
+  // Morning Week 3 — UPDATED
   {id:'m3',type:'weekday-morning',day:'Morning Package — Week 3',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 27 Apr, Wed 29 Apr, Thu 30 Apr, Fri 1 May',
-    dates:'Mon 27th Apr · Wed 29th Apr · Thu 30th Apr · Fri 1st May',
+    days:'Mon 27 Apr, Wed 29 Apr, Fri 1 May, Sat 2 May',
+    dates:'Mon 27th Apr · Wed 29th Apr · Fri 1st May · Sat 2nd May',
     classes:'4 classes', bookings:[]},
+
   // Evening Week 1
   {id:'e1',type:'weekday-evening',day:'Evening Package — Week 1',icon:'🌙',
     time:'6:00 – 8:00 PM',venue:'Moshi JLT',
     days:'Mon 13, Wed 15, Thu 16, Fri 17 Apr',
-    dates:'Mon 13 · Wed 15 · Thu 16 · Fri 17 Apr',
+    dates:'Mon 13th · Wed 15th · Thu 16th · Fri 17th Apr',
     classes:'4 classes', bookings:[]},
+
   // Evening Week 2
   {id:'e2',type:'weekday-evening',day:'Evening Package — Week 2',icon:'🌙',
     time:'6:00 – 8:00 PM',venue:'Moshi JLT',
     days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
-    dates:'Mon 20 · Wed 22 · Thu 23 · Fri 24 Apr',
+    dates:'Mon 20th · Wed 22nd · Thu 23rd · Fri 24th Apr',
     classes:'4 classes', bookings:[]},
-  // Evening Week 3
+
+  // Evening Week 3 — UPDATED
   {id:'e3',type:'weekday-evening',day:'Evening Package — Week 3',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Moshi JLT',
-    days:'Mon 27 Apr, Wed 29 Apr, Thu 30 Apr, Fri 1 May',
-    dates:'Mon 27th Apr · Wed 29th Apr · Thu 30th Apr · Fri 1st May',
+    time:'5:00 – 7:00 PM',venue:'Moshi JLT',
+    days:'Mon 27 Apr, Wed 29 Apr, Fri 1 May, Sat 2 May',
+    dates:'Mon 27th Apr · Wed 29th Apr · Fri 1st May · Sat 2nd May',
     classes:'4 classes', bookings:[]},
 ];
 
 let activeSess = SESSIONS[0];
 
 function renderCard(s) {
-  const stripeClass = s.type === 'weekend' ? 'stripe-weekend' : 'stripe-weekday';
   return `<div class="scard" onclick="openSheet('${s.id}')">
-    <div class="scard-stripe ${stripeClass}"></div>
+    <div class="scard-stripe stripe-${s.type==='weekend'?'weekend':'weekday'}"></div>
     <div class="sday-icon">${s.icon}</div>
-    <div>
+    <div class="sinfo">
       <div class="sinfo-title">${s.day}</div>
-      <div class="sinfo-meta">${s.time} &nbsp;·&nbsp; 📍 ${s.venue}</div>
+      <div class="sinfo-meta">🕐 ${s.time} · 📍 ${s.venue}</div>
+      <div class="sinfo-meta">${s.dates}</div>
+      <div class="sinfo-price">700 AED · ${s.classes}</div>
     </div>
-    <div class="sright">
-      <button class="book-btn">Book →</button>
-    </div>
+    <div><button class="book-btn" onclick="openSheet('${s.id}')">Book →</button></div>
   </div>`;
 }
 
 function renderSessions() {
   document.getElementById('weekend-list').innerHTML = SESSIONS.filter(s=>s.type==='weekend').map(renderCard).join('');
-  document.getElementById('weekday-morning-list').innerHTML = SESSIONS.filter(s=>s.type==='weekday-morning').map(renderCard).join('');
-  document.getElementById('weekday-evening-list').innerHTML = SESSIONS.filter(s=>s.type==='weekday-evening').map(renderCard).join('');
+  document.getElementById('morning-list').innerHTML = SESSIONS.filter(s=>s.type==='weekday-morning').map(renderCard).join('');
+  document.getElementById('evening-list').innerHTML = SESSIONS.filter(s=>s.type==='weekday-evening').map(renderCard).join('');
 }
 
 function openSheet(sid) {
@@ -251,20 +267,17 @@ function bgDismiss(e) { if(e.target.id==='overlay') closeSheet(); }
 
 function renderForm() {
   const s = activeSess;
+  const isWeekend = s.type === 'weekend';
   document.getElementById('sheet-body').innerHTML = `
-    <span class="sheet-type">🀄 Workshop Package</span>
+    <span class="sheet-type">Workshop Package</span>
     <div class="sheet-title">${s.day}</div>
-    <div class="sheet-meta">📅 ${s.dates ? s.dates : s.days}<br>⏰ ${s.time} &nbsp;·&nbsp; 📍 ${s.venue}</div>
-    <div class="field"><label>Your Name (person paying)</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
-    <div class="field">
-      <label>Booking for someone else? Enter their name <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">(optional)</span></label>
-      <input id="f-bookingfor" type="text" placeholder="Leave blank if booking for yourself">
-    </div>
+    <div class="sheet-meta">🕐 ${s.time} · 📍 ${s.venue}<br>${s.dates}</div>
+    <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
     <div class="field-2">
       <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
       <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
     </div>
-    <div class="field" style="margin-top:.9rem">
+    <div class="field">
       <label>Experience Level</label>
       <select id="f-xp">
         <option value="beginner">🌱 Beginner</option>
@@ -274,7 +287,7 @@ function renderForm() {
     </div>
     <div class="divider"></div>
     <div class="summary-box">
-      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v">${s.day} Workshop</span></div>
+      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v">${s.day}</span></div>
       <div class="sum-row"><span class="sum-k">Time</span><span class="sum-v">${s.time}</span></div>
       <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">${s.venue}</span></div>
       <div class="sum-row"><span class="sum-k">Price</span><span class="sum-v" style="color:var(--gold)">700 AED</span></div>
@@ -287,45 +300,44 @@ function confirmBooking() {
   const name = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
-  const xp = document.getElementById('f-xp').value;
   if(!name||!email||!phone){alert('Please fill in all fields.');return;}
   if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
 
-  const bookingFor = document.getElementById('f-bookingfor') ? document.getElementById('f-bookingfor').value.trim() : '';
-  const attendeeName = bookingFor || name;
-
-  let dateInfo = 'Weekly ' + activeSess.days;
-  if (activeSess.type === 'weekend') {
-    const sat1 = document.getElementById('f-sat1').options[document.getElementById('f-sat1').selectedIndex].text;
-    const sun1 = document.getElementById('f-sun1').options[document.getElementById('f-sun1').selectedIndex].text;
-    const sat2 = document.getElementById('f-sat2').options[document.getElementById('f-sat2').selectedIndex].text;
-    const sun2 = document.getElementById('f-sun2').options[document.getElementById('f-sun2').selectedIndex].text;
-    dateInfo = `Wknd 1: ${sat1} & ${sun1} | Wknd 2: ${sat2} & ${sun2}`;
-  }
-
   const btn = document.getElementById('book-btn');
   btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Confirming…';
-  const ref = 'WS-' + Math.floor(1000+Math.random()*9000);
-  fetch(SHEETS_URL, {method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({action:'add',name,email,phone,experience:xp,
-      session:activeSess.day,date:(activeSess.dates ? activeSess.dates : activeSess.days),
-      time:activeSess.time,venue:activeSess.venue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue:'700 AED',attendee:attendeeName})
+
+  const ref = 'MBL-' + Math.floor(1000+Math.random()*9000);
+  const experience = document.getElementById('f-xp').value;
+
+  fetch(SHEETS_URL, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      name, email, phone, experience,
+      session: activeSess.day,
+      date: activeSess.dates,
+      time: activeSess.time,
+      venue: activeSess.venue,
+      ref,
+      bookedAt: new Date().toLocaleString('en-GB'),
+      amountDue: '700 AED'
+    })
   }).catch(()=>{});
+
   if (!activeSess.bookings) activeSess.bookings = [];
   activeSess.bookings.push({name, email, phone, ref});
 
   document.getElementById('sheet-body').innerHTML = `
     <div class="success">
       <span class="succ-emoji">🎉</span>
-      <div class="succ-title">You're booked!</div>
-      <p class="succ-body">Booking confirmed for <strong>${attendeeName}</strong> in the <strong>${activeSess.day}</strong><br>${activeSess.time.split(' · ').pop()} · ${activeSess.venue}<br>is confirmed. We'll be in touch!</p>
+      <div class="succ-title">You're confirmed!</div>
+      <p class="succ-body">Your spot at <strong>${activeSess.day}</strong><br>${activeSess.dates}<br>${activeSess.time} · ${activeSess.venue}<br>Complete your payment below.</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
-      <div style="background:#FFF8E8;border:1.5px solid #F0C040;border-radius:10px;padding:.85rem 1rem;margin-bottom:.9rem;font-size:.82rem;color:#7A5A00;line-height:1.55;text-align:left">
-        🀄 <strong>This is a 4-class workshop package — one payment per person.</strong><br>
-        If you are booking on behalf of someone else, please ask them to make their own separate booking.
-      </div>
-      <a href="https://pay.nomodapp.com/en/l/cf8bd60781ef418d" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#6B3FA0;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem">💳 Pay Now via Nomod</button></a>
-    <button class="btn-done" onclick="closeSheet()">Done ✓</button>
+      <a href="${NOMOD_LINK}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem">
+        <button class="pay-btn">💳 Pay Now via Nomod</button>
+      </a>
+      <p class="pay-note">Secure payment powered by Nomod</p>
+      <button class="btn-done" onclick="closeSheet()">Done ✓</button>
     </div>`;
 }
 
