@@ -148,7 +148,8 @@ nav{padding:0 1rem}
 
 <script>
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
-const NOMOD_LINK = "https://pay.nomodapp.com/en/l/shanghai";
+const NOMOD_FIRST = "https://pay.nomodapp.com/en/l/9b4039a505334d6f";
+const NOMOD_RETURNING = "https://pay.nomodapp.com/en/l/236ed072aac44739";
 
 const SESSIONS = [
   {id:'t2',day:'Tuesday',date:'21 Apr',time:'3:00 – 5:00 PM',venue:'Dishtrict, Wasl 51'},
@@ -199,12 +200,19 @@ function renderForm(){
       <div class="price-info-title">💰 Pricing</div>
       <div class="price-info-row">✦ 1st time attendees: <strong>40 AED</strong></div>
       <div class="price-info-row">✦ Thereafter: <strong>20 AED per game</strong></div>
-      <div class="price-info-row">✦ Pay Dishtrict: <strong>40 AED redeemable on F&B</strong></div>
+      <div class="price-info-row">✦ Pay Dishtrict: <strong>40 AED redeemable on F&amp;B</strong></div>
     </div>
     <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
     <div class="field-2">
       <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
       <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
+    </div>
+    <div class="field">
+      <label>Visit Type</label>
+      <select id="f-visit">
+        <option value="first">🌟 1st Time Visitor — 40 AED</option>
+        <option value="returning">🔄 Returning Player — 20 AED</option>
+      </select>
     </div>
     <div class="divider"></div>
     <div class="summary-box">
@@ -226,6 +234,9 @@ function confirmBooking(){
   if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
   const btn=document.getElementById('book-btn');
   btn.disabled=true;btn.innerHTML='<span class="spin"></span> Confirming…';
+  const visitType = document.getElementById('f-visit').value;
+  const amountDue = visitType === 'first' ? '40 AED' : '20 AED';
+  const nomodLink = visitType === 'first' ? NOMOD_FIRST : NOMOD_RETURNING;
   const ref='MBL-'+Math.floor(1000+Math.random()*9000);
   fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({
     name,email,phone,
@@ -235,7 +246,7 @@ function confirmBooking(){
     venue:activeSess.venue,
     ref,
     bookedAt:new Date().toLocaleString('en-GB'),
-    amountDue:'40 AED (1st visit) / 20 AED thereafter'
+    amountDue:amountDue
   })}).catch(()=>{});
   document.getElementById('sheet-body').innerHTML=`
     <div class="success">
@@ -243,7 +254,7 @@ function confirmBooking(){
       <div class="succ-title">You're confirmed!</div>
       <p class="succ-body">Your spot at <strong>${activeSess.day} Shanghai</strong><br>${activeSess.date} · ${activeSess.time}<br>📍 ${activeSess.venue}<br><br>Complete your payment below.</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
-      <a href="${NOMOD_LINK}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem">
+      <a href="${nomodLink}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem">
         <button class="pay-btn">💳 Pay Now via Nomod</button>
       </a>
       <p class="pay-note">Secure payment powered by Nomod</p>
