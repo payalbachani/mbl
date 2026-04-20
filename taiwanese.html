@@ -148,10 +148,21 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
       📍 Dishtrict · Min spend 35 AED on F&B<br>
       💰 200 AED per person
     </div>
-    <button class="btn-open" onclick="openSheet('Tuesday 21st Apr', 'Dishtrict')">Book →</button>
+    <button class="btn-open" onclick="openSheet('Tuesday 21st Apr', 'Dishtrict', '2:00 – 4:00 PM')">Book →</button>
   </div>
 
-  <!-- THURSDAY 23 APR -->
+  <!-- THURSDAY 23 APR - DISHTRICT 12-2 -->
+  <div class="book-card">
+    <div class="book-card-title">Thursday Session</div>
+    <div class="book-card-meta">
+      📅 Thursday 23rd Apr &nbsp;·&nbsp; 🕒 12:00 – 2:00 PM<br>
+      📍 Dishtrict · Min spend 35 AED on F&B<br>
+      💰 200 AED per person
+    </div>
+    <button class="btn-open" onclick="openSheet('Thursday 23rd Apr', 'Dishtrict', '12:00 – 2:00 PM')">Book →</button>
+  </div>
+
+  <!-- THURSDAY 23 APR - MOTI MAHAL 2-4 -->
   <div class="book-card">
     <div class="book-card-title">Thursday Session</div>
     <div class="book-card-meta">
@@ -159,7 +170,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
       📍 Moti Mahal, Business Bay · Min spend 40 AED on F&B<br>
       💰 200 AED per person
     </div>
-    <button class="btn-open" onclick="openSheet('Thursday 23rd Apr', 'Moti Mahal, Business Bay')">Book →</button>
+    <button class="btn-open" onclick="openSheet('Thursday 23rd Apr', 'Moti Mahal, Business Bay', '2:00 – 4:00 PM')">Book →</button>
   </div>
 
   <!-- TUESDAY 5 MAY -->
@@ -170,7 +181,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
       📍 Dishtrict · Min spend 35 AED on F&B<br>
       💰 200 AED per person
     </div>
-    <button class="btn-open" onclick="openSheet('Tuesday 5th May', 'Dishtrict')">Book →</button>
+    <button class="btn-open" onclick="openSheet('Tuesday 5th May', 'Dishtrict', '2:00 – 4:00 PM')">Book →</button>
   </div>
 
   <!-- THURSDAY 7 MAY -->
@@ -181,7 +192,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
       📍 Moti Mahal, Business Bay · Min spend 40 AED on F&B<br>
       💰 200 AED per person
     </div>
-    <button class="btn-open" onclick="openSheet('Thursday 7th May', 'Moti Mahal, Business Bay')">Book →</button>
+    <button class="btn-open" onclick="openSheet('Thursday 7th May', 'Moti Mahal, Business Bay', '2:00 – 4:00 PM')">Book →</button>
   </div>
 
 </div>
@@ -199,10 +210,12 @@ const NOMOD_LINK = "https://pay.nomodapp.com/en/l/beddfc1a014f4083";
 
 let activeDay = 'Tuesday';
 let activeVenue = 'Dishtrict';
+let activeTime = '2:00 – 4:00 PM';
 
-function openSheet(day, venue) {
+function openSheet(day, venue, time) {
   activeDay = day;
   activeVenue = venue;
+  activeTime = time || '2:00 – 4:00 PM';
   renderForm();
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -217,7 +230,7 @@ function renderForm() {
   document.getElementById('sheet-body').innerHTML = `
     <span class="sheet-type">😊 Community</span>
     <div class="sheet-title">Taiwanese Bridging Class</div>
-    <div class="sheet-meta">📅 ${activeDay}s · 🕒 2:00 – 4:00 PM<br>📍 ${activeVenue}<br>💰 200 AED per person</div>
+    <div class="sheet-meta">📅 ${activeDay} · 🕒 ${activeTime}<br>📍 ${activeVenue}<br>💰 200 AED per person</div>
     <div class="field">
       <label>Full Name</label>
       <input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name">
@@ -243,7 +256,7 @@ function renderForm() {
     <div class="divider"></div>
     <div class="summary-box">
       <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v">${activeDay} Bridging Class</span></div>
-      <div class="sum-row"><span class="sum-k">Time</span><span class="sum-v">2:00 – 4:00 PM</span></div>
+      <div class="sum-row"><span class="sum-k">Time</span><span class="sum-v">${activeTime}</span></div>
       <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">${activeVenue}</span></div>
       <div class="sum-row"><span class="sum-k">Price</span><span class="sum-v" style="color:var(--warm)">200 AED per person</span></div>
     </div>
@@ -273,7 +286,7 @@ function confirmBooking() {
       experience: xp,
       session: 'Taiwanese Mahjong Bridging Class',
       date: activeDay + 's',
-      time: '2:00 – 4:00 PM',
+      time: activeTime,
       venue: activeVenue,
       ref,
       bookedAt: new Date().toLocaleString('en-GB'),
