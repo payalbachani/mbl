@@ -180,13 +180,21 @@ const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_X
 const NOMOD_LINK = "https://pay.nomodapp.com/en/l/cf8bd60781ef418d";
 
 const SESSIONS = [
-  // Weekend Package
-  {id:'w1',type:'weekend',day:'2 Weekends Package',icon:'🗓️',
+  // Weekend Package 2
+  {id:'w2',type:'weekend',day:'Weekends · 25–26 Apr',icon:'🗓️',
     time:'3:00 – 5:00 PM',venue:'Moshi JLT',
-    days:'Weekend 1: Sat 19 & Sun 20 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
-    dates:'Weekend 1: Sat 19 & Sun 20 Apr · Weekend 2: Sat 25 & Sun 26 Apr',
-    classes:'4 classes across 2 weekends',
-    week1:'Sat 19 Apr & Sun 20 Apr', week2:'Sat 25 Apr & Sun 26 Apr', bookings:[]},
+    days:'Sat 25 & Sun 26 Apr',
+    dates:'Sat 25th Apr & Sun 26th Apr',
+    classes:'Choose any 4 days',
+    week1:'Sat 25 Apr & Sun 26 Apr', week2:'', bookings:[]},
+
+  // Weekend Package 3
+  {id:'w3',type:'weekend',day:'Weekends · 2–3 May',icon:'🗓️',
+    time:'3:00 – 5:00 PM',venue:'Moshi JLT',
+    days:'Sat 2 & Sun 3 May',
+    dates:'Sat 2nd May & Sun 3rd May',
+    classes:'Choose any 4 days',
+    week1:'Sat 2 May & Sun 3 May', week2:'', bookings:[]},
 
   // Morning 20-24 Apr
   {id:'m2',type:'weekday-morning',day:'Mornings · 20–24 Apr',icon:'☀️',
@@ -203,10 +211,10 @@ const SESSIONS = [
     classes:'Choose any 4 days', bookings:[]},
 
   // Morning 4-8 May
-  {id:'m4',type:'weekday-morning',day:'Mornings · 4–8 May',icon:'☀️',
+  {id:'m4',type:'weekday-morning',day:'Mornings · 5–8 May',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 4, Tue 5, Wed 6, Thu 7, Fri 8 May (choose any 4)',
-    dates:'Mon 4th · Tue 5th · Wed 6th · Thu 7th · Fri 8th May',
+    days:'Tue 5, Wed 6, Thu 7, Fri 8 May',
+    dates:'Tue 5th · Wed 6th · Thu 7th · Fri 8th May',
     classes:'Choose any 4 days', bookings:[]},
 
   // Morning 11-15 May
@@ -231,10 +239,10 @@ const SESSIONS = [
     classes:'Choose any 4 days', bookings:[]},
 
   // Evening 4-8 May
-  {id:'e4',type:'weekday-evening',day:'Evenings · 4–8 May',icon:'🌙',
+  {id:'e4',type:'weekday-evening',day:'Evenings · 5–8 May',icon:'🌙',
     time:'5:00 – 7:00 PM',venue:'Moshi JLT',
-    days:'Mon 4, Tue 5, Wed 6, Thu 7, Fri 8 May (choose any 4)',
-    dates:'Mon 4th · Tue 5th · Wed 6th · Thu 7th · Fri 8th May',
+    days:'Tue 5, Wed 6, Thu 7, Fri 8 May',
+    dates:'Tue 5th · Wed 6th · Thu 7th · Fri 8th May',
     classes:'Choose any 4 days', bookings:[]},
 
   // Evening 11-15 May
