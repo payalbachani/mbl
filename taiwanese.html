@@ -25,6 +25,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+
 nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem}
 .brand{display:flex;align-items:center;gap:.55rem}
 .brand-tile{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0;display:block}
@@ -32,6 +33,8 @@ nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.9
 .brand-mbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);letter-spacing:.02em;line-height:1}
 .brand-sub{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:1px}
 .nav-home{background:var(--ink);color:#fff;border:none;border-radius:7px;padding:.38rem .8rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+
+/* HERO */
 .hero{max-width:620px;margin:0 auto;padding:3.5rem 1.75rem 2.5rem;text-align:center}
 .hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--warm);margin-bottom:1rem}
 .hero-rule::before,.hero-rule::after{content:'';width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--warm))}
@@ -41,56 +44,75 @@ nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.9
 .community-tag{display:inline-flex;align-items:center;gap:.4rem;background:#FFF8F0;border:1px solid #E8C8A0;border-radius:99px;padding:.32rem .9rem;font-size:.82rem;font-weight:600;color:var(--warm);margin-bottom:1.2rem}
 .hero-desc{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:400px;margin:0 auto 1.4rem}
 .price-banner{display:inline-block;background:var(--warm);color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;padding:.5rem 1.5rem;border-radius:99px;margin-bottom:1.5rem}
+
+/* WHAT YOU GET */
 .features{max-width:560px;margin:0 auto 2.5rem;display:flex;flex-direction:column;gap:.6rem;text-align:left;padding:0 1.5rem}
 .feat{display:flex;align-items:flex-start;gap:.75rem;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem}
 .feat-icon{font-size:1.2rem;flex-shrink:0;margin-top:.05rem}
 .feat-text{font-size:.88rem;color:var(--ink2);line-height:1.5}
 .feat-text strong{color:var(--ink);display:block;margin-bottom:.1rem}
+
+/* BOOK CARD */
 .book-wrap{max-width:560px;margin:0 auto;padding:0 1.5rem 4rem}
-.sec-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
-.sec-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);white-space:nowrap}
-.sec-line{flex:1;height:1px;background:var(--border)}
-.book-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem 1.6rem;position:relative;overflow:hidden;margin-bottom:.75rem}
+.book-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem 1.6rem;position:relative;overflow:hidden}
 .book-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--warm);border-radius:4px 0 0 4px}
 .book-card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:.25rem}
-.book-card-meta{font-size:.82rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.6}
+.book-card-meta{font-size:.82rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.5}
 .btn-open{background:var(--warm);color:#fff;border:none;border-radius:99px;padding:.45rem 1.3rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .18s,transform .18s}
 .btn-open:hover{background:#6B3410;transform:translateY(-1px)}
+
+/* OVERLAY / SHEET */
 .overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
 @media(min-width:540px){.overlay{align-items:center}}
 .overlay.open{opacity:1;pointer-events:all}
 .sheet{background:var(--card);border-radius:20px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;padding:1.8rem 1.8rem 2rem;transform:translateY(20px) scale(.98);transition:transform .32s cubic-bezier(.34,1.4,.64,1);position:relative}
 .overlay.open .sheet{transform:none}
-.sheet-x{position:absolute;top:1.15rem;right:1.15rem;width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;font-size:.88rem;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.sheet-x{position:absolute;top:1.15rem;right:1.15rem;width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;font-size:.88rem;color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:background .15s}
+.sheet-x:hover{background:var(--border)}
 .sheet-type{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .65rem;border-radius:99px;margin-bottom:.55rem;background:#FFF0E5;color:var(--warm)}
 .sheet-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:.2rem}
 .sheet-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:1.4rem}
+
 .field{margin-bottom:.9rem}
 .field label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);margin-bottom:.3rem}
-.field input,.field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none;appearance:none}
+.field input,.field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none;appearance:none;transition:border-color .18s,box-shadow .18s}
+.field input:focus,.field select:focus{border-color:var(--warm);box-shadow:0 0 0 3px rgba(139,69,19,.1);background:var(--card)}
 .field-2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 .divider{height:1px;background:var(--border);margin:1.1rem 0}
+
 .summary-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.1rem}
 .sum-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.81rem;margin-bottom:.3rem}
 .sum-row:last-child{margin-bottom:0}
 .sum-k{color:var(--muted)}
 .sum-v{font-weight:600}
-.btn-book{width:100%;background:var(--warm);color:#fff;border:none;border-radius:10px;padding:.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem}
-.btn-book:disabled{opacity:.5;cursor:not-allowed}
+
+.btn-book{width:100%;background:var(--warm);color:#fff;border:none;border-radius:10px;padding:.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem;transition:background .18s,transform .18s,box-shadow .18s}
+.btn-book:hover:not(:disabled){background:#6B3410;transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-book:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
 @keyframes sp{to{transform:rotate(360deg)}}
+
 .success{text-align:center;padding:.5rem 0}
 .succ-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem}
 .succ-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
 .succ-body{color:var(--muted);font-size:.86rem;line-height:1.65;margin-bottom:1.3rem}
 .succ-ref{background:var(--bg);border:1.5px dashed var(--border);border-radius:10px;padding:.7rem 1rem;margin-bottom:1.3rem}
 .succ-ref-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
-.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--warm)}
-.btn-done{background:var(--green);color:#fff;border:none;border-radius:10px;padding:.72rem 2rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer}
-.pay-btn{display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:.65rem}
-.pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.5rem}
+.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--warm);letter-spacing:.04em}
+.btn-done{background:var(--green);color:#fff;border:none;border-radius:10px;padding:.72rem 2rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .18s}
+.btn-done:hover{background:#1D5237}
+
 footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
-@media(max-width:520px){nav{padding:0 1rem}.brand-sub{display:none}.field-2{grid-template-columns:1fr}}
+
+@media(max-width:520px){
+  nav{padding:0 1rem}
+  .brand-sub{display:none}
+  .field-2{grid-template-columns:1fr}
+}
+
+.pay-btn{display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-top:.65rem;transition:background .18s,transform .18s}
+.pay-btn:hover{background:#1D5237;transform:translateY(-1px)}
+.pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.5rem}
 </style>
 </head>
 <body>
@@ -134,67 +156,30 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 </div>
 
 <div class="book-wrap">
-
-  <div class="sec-head">
-    <span class="sec-label">Choose a Session</span>
-    <div class="sec-line"></div>
-  </div>
-
-  <!-- TUESDAY 21 APR -->
-  <div class="book-card">
-    <div class="book-card-title">Tuesday Session</div>
+  <div class="book-card" onclick="openSheet('mon27')">
+    <div class="book-card-title">Monday, 27 April</div>
     <div class="book-card-meta">
-      📅 Tuesday 21st Apr &nbsp;·&nbsp; 🕒 2:00 – 4:00 PM<br>
-      📍 Dishtrict · Min spend 35 AED on F&B<br>
+      ⏰ 12:00 – 2:00 PM &nbsp;·&nbsp; 📍 Dishtrict<br>
       💰 200 AED per person
     </div>
-    <button class="btn-open" onclick="openSheet('Tuesday 21st Apr', 'Dishtrict', '2:00 – 4:00 PM')">Book →</button>
+    <button class="btn-open">Book Now →</button>
   </div>
-
-  <!-- THURSDAY 23 APR - DISHTRICT 12-2 -->
-  <div class="book-card">
-    <div class="book-card-title">Thursday Session</div>
+  <div class="book-card" style="margin-top:.75rem" onclick="openSheet('tue5')">
+    <div class="book-card-title">Tuesday, 5 May</div>
     <div class="book-card-meta">
-      📅 Thursday 23rd Apr &nbsp;·&nbsp; 🕒 12:00 – 2:00 PM<br>
-      📍 Dishtrict · Min spend 35 AED on F&B<br>
+      ⏰ 2:00 – 4:00 PM &nbsp;·&nbsp; 📍 Dishtrict<br>
       💰 200 AED per person
     </div>
-    <button class="btn-open" onclick="openSheet('Thursday 23rd Apr', 'Dishtrict', '12:00 – 2:00 PM')">Book →</button>
+    <button class="btn-open">Book Now →</button>
   </div>
-
-  <!-- THURSDAY 23 APR - MOTI MAHAL 2-4 -->
-  <div class="book-card">
-    <div class="book-card-title">Thursday Session</div>
+  <div class="book-card" style="margin-top:.75rem" onclick="openSheet('thu7')">
+    <div class="book-card-title">Thursday, 7 May</div>
     <div class="book-card-meta">
-      📅 Thursday 23rd Apr &nbsp;·&nbsp; 🕒 2:00 – 4:00 PM<br>
-      📍 Moti Mahal, Business Bay · Min spend 40 AED on F&B<br>
+      ⏰ 2:00 – 4:00 PM &nbsp;·&nbsp; 📍 Moti Mahal<br>
       💰 200 AED per person
     </div>
-    <button class="btn-open" onclick="openSheet('Thursday 23rd Apr', 'Moti Mahal, Business Bay', '2:00 – 4:00 PM')">Book →</button>
+    <button class="btn-open">Book Now →</button>
   </div>
-
-  <!-- TUESDAY 5 MAY -->
-  <div class="book-card">
-    <div class="book-card-title">Tuesday Session</div>
-    <div class="book-card-meta">
-      📅 Tuesday 5th May &nbsp;·&nbsp; 🕒 2:00 – 4:00 PM<br>
-      📍 Dishtrict · Min spend 35 AED on F&B<br>
-      💰 200 AED per person
-    </div>
-    <button class="btn-open" onclick="openSheet('Tuesday 5th May', 'Dishtrict', '2:00 – 4:00 PM')">Book →</button>
-  </div>
-
-  <!-- THURSDAY 7 MAY -->
-  <div class="book-card">
-    <div class="book-card-title">Thursday Session</div>
-    <div class="book-card-meta">
-      📅 Thursday 7th May &nbsp;·&nbsp; 🕒 2:00 – 4:00 PM<br>
-      📍 Moti Mahal, Business Bay · Min spend 40 AED on F&B<br>
-      💰 200 AED per person
-    </div>
-    <button class="btn-open" onclick="openSheet('Thursday 7th May', 'Moti Mahal, Business Bay', '2:00 – 4:00 PM')">Book →</button>
-  </div>
-
 </div>
 
 <div class="overlay" id="overlay" onclick="bgDismiss(event)">
@@ -206,16 +191,16 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 
 <script>
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
-const NOMOD_LINK = "https://pay.nomodapp.com/en/l/beddfc1a014f4083";
 
-let activeDay = 'Tuesday';
-let activeVenue = 'Dishtrict';
-let activeTime = '2:00 – 4:00 PM';
+const SESSIONS = {
+  mon27: { label:'Monday, 27 April', time:'12:00 – 2:00 PM', venue:'Dishtrict', date:'Mon 27 Apr' },
+  tue5:  { label:'Tuesday, 5 May',   time:'2:00 – 4:00 PM',  venue:'Dishtrict', date:'Tue 5 May' },
+  thu7:  { label:'Thursday, 7 May',  time:'2:00 – 4:00 PM',  venue:'Moti Mahal', date:'Thu 7 May' },
+};
+let activeSession = 'mon27';
 
-function openSheet(day, venue, time) {
-  activeDay = day;
-  activeVenue = venue;
-  activeTime = time || '2:00 – 4:00 PM';
+function openSheet(id) {
+  activeSession = id;
   renderForm();
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -227,10 +212,11 @@ function closeSheet() {
 function bgDismiss(e) { if(e.target.id==='overlay') closeSheet(); }
 
 function renderForm() {
+  const s = SESSIONS[activeSession];
   document.getElementById('sheet-body').innerHTML = `
     <span class="sheet-type">😊 Community</span>
     <div class="sheet-title">Taiwanese Bridging Class</div>
-    <div class="sheet-meta">📅 ${activeDay} · 🕒 ${activeTime}<br>📍 ${activeVenue}<br>💰 200 AED per person</div>
+    <div class="sheet-meta">📅 ${s.label} · ${s.time}<br>📍 ${s.venue} &nbsp;·&nbsp; 💰 200 AED per person</div>
     <div class="field">
       <label>Full Name</label>
       <input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name">
@@ -248,16 +234,15 @@ function renderForm() {
     <div class="field" style="margin-top:.9rem">
       <label>Taiwanese Mahjong Experience</label>
       <select id="f-xp">
-        <option value="Some experience" selected>Some experience</option>
-        <option value="Intermediate">Intermediate</option>
+        <option value="Some experience">Some experience</option>
+        <option value="Intermediate" selected>Intermediate</option>
         <option value="Experienced">Experienced</option>
       </select>
     </div>
     <div class="divider"></div>
     <div class="summary-box">
-      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v">${activeDay} Bridging Class</span></div>
-      <div class="sum-row"><span class="sum-k">Time</span><span class="sum-v">${activeTime}</span></div>
-      <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">${activeVenue}</span></div>
+      <div class="sum-row"><span class="sum-k">Class</span><span class="sum-v">Taiwanese Bridging Class</span></div>
+      <div class="sum-row"><span class="sum-k">Duration</span><span class="sum-v">2 hours</span></div>
       <div class="sum-row"><span class="sum-k">Price</span><span class="sum-v" style="color:var(--warm)">200 AED per person</span></div>
     </div>
     <button class="btn-book" id="book-btn" onclick="confirmBooking()">Pay Now via Nomod →</button>
@@ -277,19 +262,16 @@ function confirmBooking() {
   btn.innerHTML = '<span class="spin"></span> Confirming…';
 
   const ref = 'TW-' + Math.floor(1000+Math.random()*9000);
-
   fetch(SHEETS_URL, {
     method:'POST', mode:'no-cors',
     headers:{'Content-Type':'application/json'},
     body: JSON.stringify({
-      name, email, phone,
+      action:'add', name, email, phone,
       experience: xp,
       session: 'Taiwanese Mahjong Bridging Class',
-      date: activeDay + 's',
-      time: activeTime,
-      venue: activeVenue,
-      ref,
-      bookedAt: new Date().toLocaleString('en-GB'),
+      date: SESSIONS[activeSession].date, time: SESSIONS[activeSession].time,
+      venue: SESSIONS[activeSession].venue,
+      ref, bookedAt: new Date().toLocaleString('en-GB'),
       amountDue: '200 AED'
     })
   }).catch(()=>{});
@@ -298,16 +280,16 @@ function confirmBooking() {
     <div class="success">
       <span class="succ-emoji">🎉</span>
       <div class="succ-title">You're in!</div>
-      <p class="succ-body">Your spot at the <strong>${activeDay} Taiwanese Bridging Class</strong><br>📍 ${activeVenue} · 2:00–4:00 PM<br><br>Complete your payment below.</p>
+      <p class="succ-body">
+        Your spot at the <strong>Taiwanese Mahjong Bridging Class</strong> is confirmed.
+        ${SESSIONS[activeSession].label} · ${SESSIONS[activeSession].time} · ${SESSIONS[activeSession].venue}. See you at the table! 😊
+      </p>
       <div class="succ-ref">
         <div class="succ-ref-lbl">Booking Reference</div>
         <div class="succ-ref-val">${ref}</div>
       </div>
-      <a href="${NOMOD_LINK}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem">
-        <button class="pay-btn">💳 Pay Now via Nomod</button>
-      </a>
-      <p class="pay-note">Secure payment powered by Nomod</p>
-      <button class="btn-done" onclick="closeSheet()">Done ✓</button>
+      <a href="https://pay.nomodapp.com/en/l/beddfc1a014f4083" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button style="width:100%;background:#8B4513;color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem">💳 Pay Now via Nomod</button></a>
+    <button class="btn-done" onclick="closeSheet()">Done ✓</button>
     </div>`;
 }
 </script>
