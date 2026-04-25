@@ -185,70 +185,56 @@ const SESSIONS = [
     time:'3:00 – 5:00 PM',venue:'Kahloun Jumeirah Park',
     days:'Sat 25 & Sun 26 Apr · Sat 2 & Sun 3 May',
     dates:'Sat 25th & Sun 26th Apr · Sat 2nd & Sun 3rd May',
-    classes:'Choose any 4 days', bookings:[]},
+    classes:'700 AED · 4 classes', bookings:[]},
 
   // Weekend Package 2
   {id:'w2',type:'weekend',day:'Weekends · 9–17 May',icon:'🗓️',
     time:'3:00 – 5:00 PM',venue:'Kahloun Jumeirah Park',
     days:'Sat 9 & Sun 10 May · Sat 16 & Sun 17 May',
     dates:'Sat 9th & Sun 10th May · Sat 16th & Sun 17th May',
-    classes:'Choose any 4 days', bookings:[]},
-
-  // Morning 20-24 Apr
-  {id:'m2',type:'weekday-morning',day:'Mornings · 20–24 Apr',icon:'☀️',
-    time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
-    dates:'Mon 20th · Wed 22nd · Thu 23rd · Fri 24th Apr',
-    classes:'Choose any 4 days', bookings:[]},
+    classes:'700 AED · 4 classes', bookings:[]},
 
   // Morning 27 Apr-2 May
   {id:'m3',type:'weekday-morning',day:'Mornings · 27 Apr–2 May',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Mon 27 Apr, Wed 29 Apr, Fri 1 May, Sat 2 May',
     dates:'Mon 27th Apr · Wed 29th Apr · Fri 1st May · Sat 2nd May',
-    classes:'Choose any 4 days', bookings:[]},
+    classes:'700 AED · 4 classes', bookings:[]},
 
-  // Morning 4-8 May
+  // Morning 5-8 May
   {id:'m4',type:'weekday-morning',day:'Mornings · 5–8 May',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Tue 5, Wed 6, Thu 7, Fri 8 May',
     dates:'Tue 5th · Wed 6th · Thu 7th · Fri 8th May',
-    classes:'Choose any 4 days', bookings:[]},
+    classes:'700 AED · 4 classes', bookings:[]},
 
-  // Morning 11-15 May
-  {id:'m5',type:'weekday-morning',day:'Mornings · 11–15 May',icon:'☀️',
+  // Morning 11-14 May
+  {id:'m5',type:'weekday-morning',day:'Mornings · 11–14 May',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 11, Tue 12, Wed 13, Thu 14, Fri 15 May (choose any 4)',
-    dates:'Mon 11th · Tue 12th · Wed 13th · Thu 14th · Fri 15th May',
-    classes:'Choose any 4 days', bookings:[]},
-
-  // Evening 20-24 Apr
-  {id:'e2',type:'weekday-evening',day:'Evenings · 20–24 Apr',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Kahloun Jumeirah Park',
-    days:'Mon 20, Wed 22, Thu 23, Fri 24 Apr',
-    dates:'Mon 20th · Wed 22nd · Thu 23rd · Fri 24th Apr',
-    classes:'Choose any 4 days', bookings:[]},
+    days:'Mon 11, Tue 12, Wed 13, Thu 14 May',
+    dates:'Mon 11th · Tue 12th · Wed 13th · Thu 14th May',
+    classes:'700 AED · 4 classes', bookings:[]},
 
   // Evening 27 Apr-2 May
   {id:'e3',type:'weekday-evening',day:'Evenings · 27 Apr–2 May',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Kahloun Jumeirah Park',
+    time:'6:00 – 8:00 PM',venue:'Dishtrict',
     days:'Mon 27 Apr, Wed 29 Apr, Fri 1 May, Sat 2 May',
     dates:'Mon 27th Apr · Wed 29th Apr · Fri 1st May · Sat 2nd May',
-    classes:'Choose any 4 days', bookings:[]},
+    classes:'700 AED · 4 classes', bookings:[]},
 
-  // Evening 4-8 May
+  // Evening 5-8 May
   {id:'e4',type:'weekday-evening',day:'Evenings · 5–8 May',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Kahloun Jumeirah Park',
+    time:'6:00 – 8:00 PM',venue:'Dishtrict',
     days:'Tue 5, Wed 6, Thu 7, Fri 8 May',
     dates:'Tue 5th · Wed 6th · Thu 7th · Fri 8th May',
-    classes:'Choose any 4 days', bookings:[]},
+    classes:'700 AED · 4 classes', bookings:[]},
 
-  // Evening 11-15 May
-  {id:'e5',type:'weekday-evening',day:'Evenings · 11–15 May',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Kahloun Jumeirah Park',
-    days:'Mon 11, Tue 12, Wed 13, Thu 14, Fri 15 May (choose any 4)',
-    dates:'Mon 11th · Tue 12th · Wed 13th · Thu 14th · Fri 15th May',
-    classes:'Choose any 4 days', bookings:[]},
+  // Evening 11-14 May
+  {id:'e5',type:'weekday-evening',day:'Evenings · 11–14 May',icon:'🌙',
+    time:'6:00 – 8:00 PM',venue:'Dishtrict',
+    days:'Mon 11, Tue 12, Wed 13, Thu 14 May',
+    dates:'Mon 11th · Tue 12th · Wed 13th · Thu 14th May',
+    classes:'700 AED · 4 classes', bookings:[]},
 ];
 
 let activeSess = SESSIONS[0];
