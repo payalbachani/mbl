@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahjong Mastery — The Mahjong Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#17110A;--ink2:#3A2C1E;--muted:#8A7462;--border:#E5D9CC;--bg:#F8F4EF;--card:#FFFFFF;--gold:#B8880A;--green:#296040;--rose:#C0306A;--r:13px;--shadow:0 2px 12px rgba(23,17,10,.08)}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem}
+.brand{display:flex;align-items:center;gap:.55rem}
+.brand-tile{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0;display:block}
+.brand-tile img{width:100%;height:100%;object-fit:cover}
+.brand-mbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+.brand-sub{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:1px}
+.nav-home{background:var(--ink);color:#fff;border:none;border-radius:7px;padding:.38rem .8rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+.hero{max-width:600px;margin:0 auto;padding:3.5rem 1.75rem 2.5rem;text-align:center}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--rose);margin-bottom:1rem}
+.hero-rule::before,.hero-rule::after{content:'';width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--rose))}
+.hero-rule::after{transform:scaleX(-1)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;line-height:1.05;color:var(--ink);margin-bottom:.7rem}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero-desc{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:380px;margin:0 auto 1.2rem}
+.price-box{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.price-pill{display:inline-block;background:var(--rose);color:#fff;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;padding:.4rem 1.2rem;border-radius:99px}
+.price-pill.secondary{background:var(--ink2)}
+.hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.htag{display:inline-flex;align-items:center;gap:.3rem;background:var(--card);border:1px solid var(--border);border-radius:99px;padding:.28rem .8rem;font-size:.75rem;font-weight:500;color:var(--ink2)}
+.wrap{max-width:660px;margin:0 auto;padding:0 1.5rem 4rem}
+.sec-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.sec-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.sec-line{flex:1;height:1px;background:var(--border)}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem 1.4rem;margin-bottom:1rem}
+.info-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;color:var(--ink)}
+.info-row{display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--ink2);margin-bottom:.4rem;line-height:1.5}
+.info-row:last-child{margin-bottom:0}
+.book-all-btn{width:100%;background:var(--rose);color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;margin-top:1rem}
+.overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
+@media(min-width:540px){.overlay{align-items:center}}
+.overlay.open{opacity:1;pointer-events:all}
+.sheet{background:var(--card);border-radius:20px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;padding:1.8rem 1.8rem 2rem;transform:translateY(20px) scale(.98);transition:transform .32s cubic-bezier(.34,1.4,.64,1);position:relative}
+.overlay.open .sheet{transform:none}
+.sheet-x{position:absolute;top:1.15rem;right:1.15rem;width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;font-size:.88rem;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.sheet-type{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .65rem;border-radius:99px;margin-bottom:.55rem;background:#FFF0F5;color:var(--rose)}
+.sheet-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:.2rem}
+.sheet-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:1.1rem}
+.sel-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin-bottom:.75rem}
+.sel-btn{border:1.5px solid var(--border);border-radius:9px;padding:.65rem .4rem;text-align:center;cursor:pointer;background:var(--bg);transition:all .18s}
+.sel-btn.on{border-color:var(--rose);background:var(--rose)}
+.sel-btn.on .sel-lbl{color:#fff}
+.sel-ico{font-size:1.1rem;margin-bottom:.2rem}
+.sel-lbl{font-size:.68rem;font-weight:600;color:var(--ink2)}
+.member-wrap{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.75rem}
+.member-btn{border:1.5px solid var(--border);border-radius:9px;padding:.65rem .4rem;text-align:center;cursor:pointer;background:var(--bg);transition:all .18s}
+.member-btn.on{border-color:var(--rose);background:var(--rose)}
+.member-btn.on .member-lbl{color:#fff}
+.member-ico{font-size:1.1rem;margin-bottom:.2rem}
+.member-lbl{font-size:.68rem;font-weight:600;color:var(--ink2)}
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);margin-bottom:.3rem}
+.field input{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none}
+.field-2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.divider{height:1px;background:var(--border);margin:1.1rem 0}
+.info-box{background:#FFF0F5;border:1px solid #E8B0C8;border-radius:10px;padding:.85rem 1rem;margin-bottom:.9rem;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.summary-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.1rem}
+.sum-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.81rem;margin-bottom:.3rem}
+.sum-row:last-child{margin-bottom:0}
+.sum-k{color:var(--muted)}
+.sum-v{font-weight:600}
+.btn-book{width:100%;background:var(--rose);color:#fff;border:none;border-radius:10px;padding:.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem;margin-top:.5rem}
+.btn-book:disabled{opacity:.5;cursor:not-allowed}
+.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.success{text-align:center;padding:.5rem 0}
+.succ-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem}
+.succ-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.succ-body{color:var(--muted);font-size:.86rem;line-height:1.65;margin-bottom:1.3rem}
+.succ-ref{background:var(--bg);border:1.5px dashed var(--border);border-radius:10px;padding:.7rem 1rem;margin-bottom:1rem}
+.succ-ref-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--rose)}
+.pay-btn{display:block;width:100%;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-bottom:.5rem}
+.pay-membership{background:var(--rose)}
+.pay-admin{background:#2D7A4F}
+.pay-note{text-align:center;font-size:.74rem;color:var(--muted);margin-top:.3rem;margin-bottom:.8rem}
+.btn-done{background:var(--green);color:#fff;border:none;border-radius:10px;padding:.72rem 2rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer}
+.step-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem;margin-top:.6rem;display:block}
+footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:520px){nav{padding:0 1rem}.brand-sub{display:none}.field-2{grid-template-columns:1fr}.sel-wrap{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand">
+    <div class="brand-tile"><img src="https://mbldubai.com/logo.jpeg" alt="MBL" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:7px"></div>
+    <div><div class="brand-mbl">The Mahjong Boutique</div><div class="brand-sub">Mastery</div></div>
+  </div>
+  <a href="/" class="nav-home">Back</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-rule">The Mahjong Boutique</div>
+  <h1>Mahjong<br><em>Mastery &amp; Scoring</em></h1>
+  <p class="hero-desc">Elevate your game with our weekly Mastery sessions. Advanced scoring, strategy and competitive play at Arrogante Downtown.</p>
+  <div class="price-box">
+    <span class="price-pill">275 AED / year membership</span>
+    <span class="price-pill secondary">15 AED admin fee per visit</span>
+  </div>
+  <div class="hero-tags">
+    <span class="htag">📍 Arrogante Downtown</span>
+    <span class="htag">📅 Tue &amp; Thu</span>
+    <span class="htag">✉️ Instant confirmation</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="sec-head">
+    <span class="sec-label">Session Details</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-title">📅 Tuesday Session</div>
+    <div class="info-row">🕖 7:00 – 9:00 PM</div>
+    <div class="info-row">📍 Arrogante Downtown</div>
+    <div class="info-row">💰 15 AED admin fee per visit</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-title">📅 Thursday Session</div>
+    <div class="info-row">🕦 11:30 AM – 1:30 PM</div>
+    <div class="info-row">📍 Arrogante Downtown</div>
+    <div class="info-row">💰 15 AED admin fee per visit</div>
+  </div>
+
+  <div class="info-card" style="background:#FFF0F5;border-color:#E8B0C8">
+    <div class="info-card-title">🌟 Annual Membership</div>
+    <div class="info-row">✦ 275 AED — paid once for the full year</div>
+    <div class="info-row">✦ Required for all members (new only)</div>
+    <div class="info-row">✦ Covers unlimited Tuesday &amp; Thursday sessions</div>
+  </div>
+
+  <button class="book-all-btn" onclick="openSheet()">Book Now →</button>
+</div>
+
+<div class="overlay" id="overlay" onclick="bgDismiss(event)">
+  <div class="sheet" id="sheet">
+    <button class="sheet-x" onclick="closeSheet()">&#x2715;</button>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+const SHEETS_URL="https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
+const NOMOD_MEMBERSHIP="https://pay.nomodapp.com/en/l/d6d1a50da22049b4";
+const NOMOD_ADMIN="https://pay.nomodapp.com/en/l/f43411702146465d";
+let dayChoice='tuesday',memberType='new';
+
+function openSheet(){
+  dayChoice='tuesday';memberType='new';
+  renderForm();
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeSheet(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function bgDismiss(e){if(e.target.id==='overlay')closeSheet();}
+
+function pickDay(d){
+  dayChoice=d;
+  ['tuesday','thursday','both'].forEach(x=>{
+    var el=document.getElementById('day-'+x);
+    if(el) el.classList.toggle('on',x===d);
+  });
+  updateInfoBox();
+}
+
+function pickMember(type){
+  memberType=type;
+  ['new','existing'].forEach(x=>{
+    var el=document.getElementById('mb-'+x);
+    if(el) el.classList.toggle('on',x===type);
+  });
+  updateInfoBox();
+}
+
+function updateInfoBox(){
+  var days=dayChoice==='both'?'Tuesday &amp; Thursday':dayChoice==='tuesday'?'Tuesday':'Thursday';
+  var sessions=dayChoice==='both'?2:1;
+  var adminTotal=sessions*15;
+  var isNew=memberType==='new';
+  var info=isNew
+    ? '<strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + '+adminTotal+' AED admin fee for '+sessions+' session'+(sessions>1?'s':'')+'.'
+    : '<strong style="color:var(--rose)">Existing Member:</strong> Pay '+adminTotal+' AED admin fee for '+sessions+' session'+(sessions>1?'s':'')+' only.';
+  var el=document.getElementById('info-box');
+  if(el) el.innerHTML=info;
+}
+
+function renderForm(){
+  document.getElementById('sheet-body').innerHTML=`
+    <span class="sheet-type">Mastery Session</span>
+    <div class="sheet-title">Book Your Session</div>
+    <div class="sheet-meta">Arrogante Downtown · 15 AED admin fee per visit</div>
+    <div class="field" style="margin-bottom:.4rem"><label>Which day(s)?</label></div>
+    <div class="sel-wrap">
+      <div class="sel-btn on" id="day-tuesday" onclick="pickDay('tuesday')">
+        <div class="sel-ico">🌙</div><div class="sel-lbl">Tuesday<br>7–9 PM</div>
+      </div>
+      <div class="sel-btn" id="day-thursday" onclick="pickDay('thursday')">
+        <div class="sel-ico">☀️</div><div class="sel-lbl">Thursday<br>11:30–1:30</div>
+      </div>
+      <div class="sel-btn" id="day-both" onclick="pickDay('both')">
+        <div class="sel-ico">🎓</div><div class="sel-lbl">Both<br>Days</div>
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:.4rem"><label>Membership Status</label></div>
+    <div class="member-wrap">
+      <div class="member-btn on" id="mb-new" onclick="pickMember('new')">
+        <div class="member-ico">🌟</div><div class="member-lbl">New Member</div>
+      </div>
+      <div class="member-btn" id="mb-existing" onclick="pickMember('existing')">
+        <div class="member-ico">🔄</div><div class="member-lbl">Existing Member</div>
+      </div>
+    </div>
+    <div class="info-box" id="info-box"><strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + 15 AED admin fee for 1 session.</div>
+    <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
+    <div class="field-2">
+      <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
+      <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
+    </div>
+    <div class="divider"></div>
+    <div class="summary-box" id="summary-box">
+      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v" id="sum-session">Tuesday Mastery</span></div>
+      <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">Arrogante Downtown</span></div>
+      <div class="sum-row"><span class="sum-k">Membership</span><span class="sum-v" style="color:var(--rose)">275 AED / year (new only)</span></div>
+      <div class="sum-row"><span class="sum-k">Admin Fee</span><span class="sum-v" style="color:var(--gold)">15 AED per session</span></div>
+    </div>
+    <button class="btn-book" id="book-btn" onclick="confirmBooking()">Confirm Booking</button>`;
+}
+
+function confirmBooking(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  if(!name||!email||!phone){alert('Please fill in all fields.');return;}
+  if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
+  const btn=document.getElementById('book-btn');
+  btn.disabled=true;btn.innerHTML='<span class="spin"></span> Confirming...';
+  const isNew=memberType==='new';
+  const sessions=dayChoice==='both'?2:1;
+  const adminTotal=sessions*15;
+  const dayLabel=dayChoice==='both'?'Tuesday & Thursday':dayChoice==='tuesday'?'Tuesday':'Thursday';
+  const timeLabel=dayChoice==='both'?'Tue 7–9 PM & Thu 11:30–1:30 PM':dayChoice==='tuesday'?'7:00 – 9:00 PM':'11:30 AM – 1:30 PM';
+  const amountDue=isNew?'275 AED membership + '+adminTotal+' AED admin fee':''+adminTotal+' AED admin fee';
+  const ref='MBL-'+Math.floor(1000+Math.random()*9000);
+  fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name,email,phone,session:dayLabel+' Mahjong Mastery',memberType:isNew?'New Member':'Existing Member',date:'Weekly '+dayLabel,time:timeLabel,venue:'Arrogante Downtown',ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue})
+  }).catch(()=>{});
+  document.getElementById('sheet-body').innerHTML=`
+    <div class="success">
+      <span class="succ-emoji">🎉</span>
+      <div class="succ-title">You're confirmed!</div>
+      <p class="succ-body">Your spot at <strong>${dayLabel} Mahjong Mastery</strong><br>${timeLabel}<br>📍 Arrogante Downtown<br><br>Please complete your payment below.</p>
+      <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
+      ${isNew?`<span class="step-label">Step 1 — Annual Membership (once only)</span>
+      <a href="${NOMOD_MEMBERSHIP}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-membership">Pay 275 AED Membership</button></a>
+      <span class="step-label">Step 2 — Admin Fee (${adminTotal} AED for ${sessions} session${sessions>1?'s':''})</span>`
+      :`<span class="step-label">Admin Fee — ${adminTotal} AED for ${sessions} session${sessions>1?'s':''}</span>`}
+      <a href="${NOMOD_ADMIN}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-admin">Pay ${adminTotal} AED Admin Fee</button></a>
+      <p class="pay-note">Secure payment powered by Nomod</p>
+      <button class="btn-done" onclick="closeSheet()">Done</button>
+    </div>`;
+}
+</script>
+<footer>🀄 The Mahjong Boutique · Dubai, UAE</footer>
+</body>
+</html>
