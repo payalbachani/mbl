@@ -109,7 +109,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
   <div class="hero-sub">Strategize. Play. Grow.</div>
   <p class="hero-desc">Screen-free fun with real-world skills. Brain games, Mahjong strategy, social play and skills for life!</p>
   <div class="price-banner">AED 500</div>
-  <p class="price-sub">5 lessons · 1.5 hours each · 7.5 hours total</p>
+  <p class="price-sub">4 classes · 2 hours each · Weekends only</p>
   <div class="hero-tags">
     <span class="htag">📍 Villa 68, Jumeirah 1</span>
     <span class="htag">📅 From 16th May</span>
@@ -127,30 +127,42 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 
 <div class="wrap">
   <div class="sec-head">
-    <span class="sec-label">Camp Package</span>
+    <span class="sec-label">Choose a Package</span>
     <div class="sec-line"></div>
   </div>
 
   <div class="package-card">
     <div class="package-stripe"></div>
-    <div class="package-title">🎓 MindScape Smart Play Camp — 5 Class Package</div>
+    <div class="package-title">🎓 Weekend Package 1 — 4 Classes</div>
     <div class="schedule-grid">
-      <div class="schedule-box">
-        <div class="schedule-day">🌟 Saturday</div>
-        <div class="schedule-time">12:00 – 1:30 PM</div>
-      </div>
-      <div class="schedule-box">
-        <div class="schedule-day">🎯 Mon – Thu</div>
-        <div class="schedule-time">5:00 – 6:30 PM</div>
-      </div>
+      <div class="schedule-box"><div class="schedule-day">🌟 Sat 16th May</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
+      <div class="schedule-box"><div class="schedule-day">🌟 Sun 17th May</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
+      <div class="schedule-box"><div class="schedule-day">🌟 Sat 23rd May</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
+      <div class="schedule-box"><div class="schedule-day">🌟 Sun 24th May</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
     </div>
     <div class="package-details">
       <span class="pkg-tag">📍 Villa 68, Jumeirah 1</span>
-      <span class="pkg-tag">📅 Starting 16th May</span>
-      <span class="pkg-tag">5 lessons · 1.5 hrs each</span>
+      <span class="pkg-tag">4 classes · 2 hrs each</span>
       <span class="pkg-tag">500 AED total</span>
     </div>
-    <button class="book-pkg-btn" onclick="openSheet()">Book Now →</button>
+    <button class="book-pkg-btn" onclick="openSheet('Weekend Package 1','Sat 16, Sun 17, Sat 23, Sun 24 May · 11:00 AM–1:00 PM')">Book Now →</button>
+  </div>
+
+  <div class="package-card" style="margin-top:.75rem">
+    <div class="package-stripe"></div>
+    <div class="package-title">🎓 Weekend Package 2 — 4 Classes</div>
+    <div class="schedule-grid">
+      <div class="schedule-box"><div class="schedule-day">🌟 Sat 30th May</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
+      <div class="schedule-box"><div class="schedule-day">🌟 Sun 31st May</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
+      <div class="schedule-box"><div class="schedule-day">🌟 Sat 6th Jun</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
+      <div class="schedule-box"><div class="schedule-day">🌟 Sun 7th Jun</div><div class="schedule-time">11:00 AM – 1:00 PM</div></div>
+    </div>
+    <div class="package-details">
+      <span class="pkg-tag">📍 Villa 68, Jumeirah 1</span>
+      <span class="pkg-tag">4 classes · 2 hrs each</span>
+      <span class="pkg-tag">500 AED total</span>
+    </div>
+    <button class="book-pkg-btn" onclick="openSheet('Weekend Package 2','Sat 30, Sun 31 May, Sat 6, Sun 7 Jun · 11:00 AM–1:00 PM')">Book Now →</button>
   </div>
 </div>
 
@@ -164,10 +176,10 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 <script>
 const SHEETS_URL="https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
 const NOMOD_LINK="https://pay.nomodapp.com/en/l/2da57723e8ff4d8c";
-let scheduleChoice='saturday';
+let activePkg='Weekend Package 1', activeDates='Sat 16, Sun 17, Sat 23, Sun 24 May · 11:00 AM–1:00 PM';
 
-function openSheet(){
-  scheduleChoice='saturday';
+function openSheet(pkg,dates){
+  activePkg=pkg; activeDates=dates;
   renderForm();
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -178,19 +190,11 @@ function closeSheet(){
 }
 function bgDismiss(e){if(e.target.id==='overlay')closeSheet();}
 
-function pickSchedule(s){
-  scheduleChoice=s;
-  ['saturday','weekday'].forEach(x=>{
-    var el=document.getElementById('sch-'+x);
-    if(el) el.classList.toggle('on',x===s);
-  });
-}
-
 function renderForm(){
   document.getElementById('sheet-body').innerHTML=`
-    <span class="sheet-type">Kids &amp; Teens Camp</span>
+    <span class="sheet-type">Kids & Teens Camp</span>
     <div class="sheet-title">MindScape Smart Play Camp</div>
-    <div class="sheet-meta">5 lessons · 1.5 hrs each · 500 AED<br>📍 Villa 68, Jumeirah 1 · Starting 16th May<br>🌟 Saturday 12:00–1:30 PM &nbsp;|&nbsp; 🎯 Mon–Thu 5:00–6:30 PM</div>
+    <div class="sheet-meta">${activePkg} · 4 classes · 500 AED<br>📍 Villa 68, Jumeirah 1<br>📅 ${activeDates}</div>
     <div class="field"><label>Parent / Guardian Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
     <div class="field"><label>Child's Name</label><input id="f-child" type="text" placeholder="e.g. Aryan Mehta"></div>
     <div class="field"><label>Child's Age</label><input id="f-age" type="number" placeholder="e.g. 12" min="10" max="18"></div>
@@ -201,9 +205,10 @@ function renderForm(){
     <div class="divider"></div>
     <div class="summary-box">
       <div class="sum-row"><span class="sum-k">Camp</span><span class="sum-v">MindScape Smart Play</span></div>
-      <div class="sum-row"><span class="sum-k">Schedule</span><span class="sum-v">Saturday 12–1:30 PM or Mon–Thu 5–6:30 PM</span></div>
+      <div class="sum-row"><span class="sum-k">Package</span><span class="sum-v">${activePkg}</span></div>
+      <div class="sum-row"><span class="sum-k">Dates</span><span class="sum-v">${activeDates}</span></div>
       <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">Villa 68, Jumeirah 1</span></div>
-      <div class="sum-row"><span class="sum-k">Lessons</span><span class="sum-v">5 lessons · 1.5 hrs each</span></div>
+      <div class="sum-row"><span class="sum-k">Classes</span><span class="sum-v">4 classes · 2 hrs each</span></div>
       <div class="sum-row"><span class="sum-k">Price</span><span class="sum-v" style="color:var(--orange)">500 AED</span></div>
     </div>
     <button class="btn-book" id="book-btn" onclick="confirmBooking()">Pay Now via Nomod →</button>`;
@@ -220,16 +225,15 @@ function confirmBooking(){
   if(parseInt(age)<10){alert('This camp is for ages 10 and above.');return;}
   const btn=document.getElementById('book-btn');
   btn.disabled=true;btn.innerHTML='<span class="spin"></span> Confirming...';
-  const scheduleLabel='Saturday 12–1:30 PM & Mon–Thu 5–6:30 PM';
   const ref='MBL-'+Math.floor(1000+Math.random()*9000);
   fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name,email,phone,session:'MindScape Smart Play Camp',childName:child,childAge:age,date:'From 16th May · '+scheduleLabel,time:'Sat 12–1:30 PM / Mon–Thu 5–6:30 PM',venue:'Villa 68, Jumeirah 1',ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue:'500 AED'})
+    body:JSON.stringify({name,email,phone,session:'MindScape Smart Play Camp · '+activePkg,childName:child,childAge:age,date:activeDates,time:'11:00 AM–1:00 PM',venue:'Villa 68, Jumeirah 1',ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue:'500 AED'})
   }).catch(()=>{});
   document.getElementById('sheet-body').innerHTML=`
     <div class="success">
       <span class="succ-emoji">🎉</span>
       <div class="succ-title">You're confirmed!</div>
-      <p class="succ-body"><strong>${child}</strong> is booked for<br><strong>MindScape Smart Play Camp</strong><br>📅 ${scheduleLabel}<br>📍 Villa 68, Jumeirah 1<br><br>Complete payment to secure the spot!</p>
+      <p class="succ-body"><strong>${child}</strong> is booked for<br><strong>MindScape · ${activePkg}</strong><br>📅 ${activeDates}<br>📍 Villa 68, Jumeirah 1<br><br>Complete payment to secure the spot!</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
       <a href="${NOMOD_LINK}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn">💳 Pay 500 AED via Nomod</button></a>
       <p class="pay-note">Secure payment powered by Nomod</p>
