@@ -37,6 +37,13 @@ nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.9
 .info-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;color:var(--ink)}
 .info-row{display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--ink2);margin-bottom:.4rem;line-height:1.5}
 .info-row:last-child{margin-bottom:0}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.15rem 1.4rem;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .18s;position:relative;overflow:hidden;margin-bottom:.6rem}
+.scard-stripe{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--rose);border-radius:4px 0 0 4px}
+.scard:hover{border-color:#C8BAA8;box-shadow:var(--shadow);transform:translateY(-1px)}
+.sinfo-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:.18rem}
+.sinfo-meta{font-size:.78rem;color:var(--muted);margin-bottom:.25rem}
+.sinfo-price{font-size:.8rem;font-weight:600;color:var(--gold)}
+.sbook-btn{background:var(--rose);color:#fff;border:none;border-radius:99px;padding:.3rem .85rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;margin-top:.55rem;display:inline-block}
 .book-all-btn{width:100%;background:var(--rose);color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;margin-top:1rem}
 .overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
 @media(min-width:540px){.overlay{align-items:center}}
@@ -117,34 +124,105 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 
 <div class="wrap">
   <div class="sec-head">
-    <span class="sec-label">Session Details</span>
+    <span class="sec-label">Thursday Sessions</span>
     <div class="sec-line"></div>
   </div>
 
-  <div class="info-card">
-    <div class="info-card-title">📅 Thursday Session</div>
-    <div class="info-row">🗓️ Starting Thursday 14th May · Every Thursday</div>
-    <div class="info-row">🕦 11:30 AM – 1:30 PM</div>
-    <div class="info-row">📍 Arrogante Downtown</div>
-    <div class="info-row">💰 15 AED admin fee per visit</div>
+  <div class="scard" onclick="openSheet('Thursday 14th May','11:30 AM – 1:30 PM','Arrogante Downtown')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">☀️</div>
+      <div>
+        <div class="sinfo-title">Thursday 14th May</div>
+        <div class="sinfo-meta">🕦 11:30 AM – 1:30 PM</div>
+        <div class="sinfo-meta">📍 Arrogante Downtown</div>
+        <div class="sinfo-price">15 AED admin fee per visit</div>
+      </div>
+    </div>
+    <button class="sbook-btn">Book →</button>
   </div>
 
-  <div class="info-card">
-    <div class="info-card-title">📅 Tuesday Session</div>
-    <div class="info-row">🗓️ Starting Tuesday 19th May · Every Tuesday</div>
-    <div class="info-row">🕖 7:00 – 9:00 PM</div>
-    <div class="info-row">📍 Arrogante Downtown</div>
-    <div class="info-row">💰 15 AED admin fee per visit</div>
+  <div class="scard" onclick="openSheet('Thursday 21st May','11:30 AM – 1:30 PM','Arrogante Downtown')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">☀️</div>
+      <div>
+        <div class="sinfo-title">Thursday 21st May</div>
+        <div class="sinfo-meta">🕦 11:30 AM – 1:30 PM</div>
+        <div class="sinfo-meta">📍 Arrogante Downtown</div>
+        <div class="sinfo-price">15 AED admin fee per visit</div>
+      </div>
+    </div>
+    <button class="sbook-btn">Book →</button>
   </div>
 
-  <div class="info-card" style="background:#FFF0F5;border-color:#E8B0C8">
+  <div class="scard" onclick="openSheet('Thursday 28th May','11:30 AM – 1:30 PM','Arrogante Downtown')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">☀️</div>
+      <div>
+        <div class="sinfo-title">Thursday 28th May</div>
+        <div class="sinfo-meta">🕦 11:30 AM – 1:30 PM</div>
+        <div class="sinfo-meta">📍 Arrogante Downtown</div>
+        <div class="sinfo-price">15 AED admin fee per visit</div>
+      </div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="sec-head" style="margin-top:1.5rem">
+    <span class="sec-label">Tuesday Sessions</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 19th May','7:00 – 9:00 PM','Selvaje')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div>
+        <div class="sinfo-title">Tuesday 19th May</div>
+        <div class="sinfo-meta">🕖 7:00 – 9:00 PM</div>
+        <div class="sinfo-meta">📍 Selvaje</div>
+        <div class="sinfo-price">15 AED admin fee per visit</div>
+      </div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 26th May','7:00 – 9:00 PM','Selvaje')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div>
+        <div class="sinfo-title">Tuesday 26th May</div>
+        <div class="sinfo-meta">🕖 7:00 – 9:00 PM</div>
+        <div class="sinfo-meta">📍 Selvaje</div>
+        <div class="sinfo-price">15 AED admin fee per visit</div>
+      </div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 2nd June','7:00 – 9:00 PM','Selvaje')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div>
+        <div class="sinfo-title">Tuesday 2nd June</div>
+        <div class="sinfo-meta">🕖 7:00 – 9:00 PM</div>
+        <div class="sinfo-meta">📍 Selvaje</div>
+        <div class="sinfo-price">15 AED admin fee per visit</div>
+      </div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="info-card" style="background:#FFF0F5;border-color:#E8B0C8;margin-top:1.5rem">
     <div class="info-card-title">🌟 Annual Membership</div>
     <div class="info-row">✦ 275 AED — paid once for the full year</div>
-    <div class="info-row">✦ Required for all members (new only)</div>
-    <div class="info-row">✦ Covers unlimited Tuesday &amp; Thursday sessions</div>
+    <div class="info-row">✦ Required for new members only</div>
+    <div class="info-row">✦ Covers all Tuesday &amp; Thursday sessions</div>
   </div>
-
-  <button class="book-all-btn" onclick="openSheet()">Book Now →</button>
 </div>
 
 <div class="overlay" id="overlay" onclick="bgDismiss(event)">
@@ -158,10 +236,10 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 const SHEETS_URL="https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
 const NOMOD_MEMBERSHIP="https://pay.nomodapp.com/en/l/d6d1a50da22049b4";
 const NOMOD_ADMIN="https://pay.nomodapp.com/en/l/f43411702146465d";
-let dayChoice='tuesday',memberType='new';
+let activeDate='',activeTime='',activeVenue='',memberType='new';
 
-function openSheet(){
-  dayChoice='tuesday';memberType='new';
+function openSheet(date,time,venue){
+  activeDate=date;activeTime=time;activeVenue=venue;memberType='new';
   renderForm();
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -172,32 +250,16 @@ function closeSheet(){
 }
 function bgDismiss(e){if(e.target.id==='overlay')closeSheet();}
 
-function pickDay(d){
-  dayChoice=d;
-  ['tuesday','thursday','both'].forEach(x=>{
-    var el=document.getElementById('day-'+x);
-    if(el) el.classList.toggle('on',x===d);
-  });
-  updateInfoBox();
-}
-
 function pickMember(type){
   memberType=type;
   ['new','existing'].forEach(x=>{
     var el=document.getElementById('mb-'+x);
     if(el) el.classList.toggle('on',x===type);
   });
-  updateInfoBox();
-}
-
-function updateInfoBox(){
-  var days=dayChoice==='both'?'Tuesday &amp; Thursday':dayChoice==='tuesday'?'Tuesday':'Thursday';
-  var sessions=dayChoice==='both'?2:1;
-  var adminTotal=sessions*15;
   var isNew=memberType==='new';
   var info=isNew
-    ? '<strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + '+adminTotal+' AED admin fee for '+sessions+' session'+(sessions>1?'s':'')+'.'
-    : '<strong style="color:var(--rose)">Existing Member:</strong> Pay '+adminTotal+' AED admin fee for '+sessions+' session'+(sessions>1?'s':'')+' only.';
+    ? '<strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + 15 AED admin fee per visit.'
+    : '<strong style="color:var(--rose)">Existing Member:</strong> Pay 15 AED admin fee only.';
   var el=document.getElementById('info-box');
   if(el) el.innerHTML=info;
 }
@@ -205,20 +267,8 @@ function updateInfoBox(){
 function renderForm(){
   document.getElementById('sheet-body').innerHTML=`
     <span class="sheet-type">Mastery Session</span>
-    <div class="sheet-title">Book Your Session</div>
-    <div class="sheet-meta">Arrogante Downtown · 15 AED admin fee per visit</div>
-    <div class="field" style="margin-bottom:.4rem"><label>Which day(s)?</label></div>
-    <div class="sel-wrap">
-      <div class="sel-btn on" id="day-tuesday" onclick="pickDay('tuesday')">
-        <div class="sel-ico">🌙</div><div class="sel-lbl">Tuesday<br>From 19th May<br>7–9 PM</div>
-      </div>
-      <div class="sel-btn" id="day-thursday" onclick="pickDay('thursday')">
-        <div class="sel-ico">☀️</div><div class="sel-lbl">Thursday<br>From 14th May<br>11:30–1:30</div>
-      </div>
-      <div class="sel-btn" id="day-both" onclick="pickDay('both')">
-        <div class="sel-ico">🎓</div><div class="sel-lbl">Both<br>Days</div>
-      </div>
-    </div>
+    <div class="sheet-title">${activeDate}</div>
+    <div class="sheet-meta">🕐 ${activeTime}<br>📍 ${activeVenue}</div>
     <div class="field" style="margin-bottom:.4rem"><label>Membership Status</label></div>
     <div class="member-wrap">
       <div class="member-btn on" id="mb-new" onclick="pickMember('new')">
@@ -228,18 +278,19 @@ function renderForm(){
         <div class="member-ico">🔄</div><div class="member-lbl">Existing Member</div>
       </div>
     </div>
-    <div class="info-box" id="info-box"><strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + 15 AED admin fee for 1 session.</div>
+    <div class="info-box" id="info-box"><strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + 15 AED admin fee per visit.</div>
     <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
     <div class="field-2">
       <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
       <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
     </div>
     <div class="divider"></div>
-    <div class="summary-box" id="summary-box">
-      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v" id="sum-session">Tuesday Mastery</span></div>
-      <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">Arrogante Downtown</span></div>
+    <div class="summary-box">
+      <div class="sum-row"><span class="sum-k">Session</span><span class="sum-v">${activeDate} Mastery</span></div>
+      <div class="sum-row"><span class="sum-k">Time</span><span class="sum-v">${activeTime}</span></div>
+      <div class="sum-row"><span class="sum-k">Venue</span><span class="sum-v">${activeVenue}</span></div>
       <div class="sum-row"><span class="sum-k">Membership</span><span class="sum-v" style="color:var(--rose)">275 AED / year (new only)</span></div>
-      <div class="sum-row"><span class="sum-k">Admin Fee</span><span class="sum-v" style="color:var(--gold)">15 AED per session</span></div>
+      <div class="sum-row"><span class="sum-k">Admin Fee</span><span class="sum-v" style="color:var(--gold)">15 AED per visit</span></div>
     </div>
     <button class="btn-book" id="book-btn" onclick="confirmBooking()">Confirm Booking</button>`;
 }
@@ -253,26 +304,21 @@ function confirmBooking(){
   const btn=document.getElementById('book-btn');
   btn.disabled=true;btn.innerHTML='<span class="spin"></span> Confirming...';
   const isNew=memberType==='new';
-  const sessions=dayChoice==='both'?2:1;
-  const adminTotal=sessions*15;
-  const dayLabel=dayChoice==='both'?'Tuesday & Thursday':dayChoice==='tuesday'?'Tuesday':'Thursday';
-  const timeLabel=dayChoice==='both'?'Tue 7–9 PM & Thu 11:30–1:30 PM':dayChoice==='tuesday'?'7:00 – 9:00 PM':'11:30 AM – 1:30 PM';
-  const amountDue=isNew?'275 AED membership + '+adminTotal+' AED admin fee':''+adminTotal+' AED admin fee';
+  const amountDue=isNew?'275 AED membership + 15 AED admin fee':'15 AED admin fee';
   const ref='MBL-'+Math.floor(1000+Math.random()*9000);
   fetch(SHEETS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name,email,phone,session:dayLabel+' Mahjong Mastery',memberType:isNew?'New Member':'Existing Member',date:'Weekly '+dayLabel,time:timeLabel,venue:'Arrogante Downtown',ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue})
+    body:JSON.stringify({name,email,phone,session:activeDate+' Mahjong Mastery',memberType:isNew?'New Member':'Existing Member',date:activeDate,time:activeTime,venue:activeVenue,ref,bookedAt:new Date().toLocaleString('en-GB'),amountDue})
   }).catch(()=>{});
   document.getElementById('sheet-body').innerHTML=`
     <div class="success">
       <span class="succ-emoji">🎉</span>
       <div class="succ-title">You're confirmed!</div>
-      <p class="succ-body">Your spot at <strong>${dayLabel} Mahjong Mastery</strong><br>${timeLabel}<br>📍 Arrogante Downtown<br><br>Please complete your payment below.</p>
+      <p class="succ-body">Your spot at <strong>${activeDate} Mastery</strong><br>${activeTime}<br>📍 ${activeVenue}<br><br>Please complete your payment below.</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
       ${isNew?`<span class="step-label">Step 1 — Annual Membership (once only)</span>
       <a href="${NOMOD_MEMBERSHIP}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-membership">Pay 275 AED Membership</button></a>
-      <span class="step-label">Step 2 — Admin Fee (${adminTotal} AED for ${sessions} session${sessions>1?'s':''})</span>`
-      :`<span class="step-label">Admin Fee — ${adminTotal} AED for ${sessions} session${sessions>1?'s':''}</span>`}
-      <a href="${NOMOD_ADMIN}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-admin">Pay ${adminTotal} AED Admin Fee</button></a>
+      <span class="step-label">Step 2 — Admin Fee</span>`:`<span class="step-label">Admin Fee</span>`}
+      <a href="${NOMOD_ADMIN}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-admin">Pay 15 AED Admin Fee</button></a>
       <p class="pay-note">Secure payment powered by Nomod</p>
       <button class="btn-done" onclick="closeSheet()">Done</button>
     </div>`;
