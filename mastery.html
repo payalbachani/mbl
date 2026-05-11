@@ -116,10 +116,11 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
     <span class="price-pill secondary">15 AED admin fee per visit</span>
   </div>
   <div class="hero-tags">
-    <span class="htag">📍 Arrogante Downtown</span>
+    <span class="htag">📍 Arrogante & Selvaje</span>
     <span class="htag">📅 Tue &amp; Thu</span>
     <span class="htag">✉️ Instant confirmation</span>
   </div>
+  <div style="display:inline-block;background:#B5221A;color:#fff;font-size:.82rem;font-weight:700;padding:.35rem 1rem;border-radius:99px;margin-top:.8rem">🎉 10% off for New Members until 20th May!</div>
 </div>
 
 <div class="wrap">
@@ -235,7 +236,11 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 <script>
 const SHEETS_URL="https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
 const NOMOD_MEMBERSHIP="https://pay.nomodapp.com/en/l/d6d1a50da22049b4";
+const NOMOD_NEW_MEMBER="https://pay.nomodapp.com/en/l/a0ca3a619690486f";
+const NOMOD_NEW_MEMBER_PROMO="https://pay.nomodapp.com/en/l/1afe64dc1e524e5a";
 const NOMOD_ADMIN="https://pay.nomodapp.com/en/l/f43411702146465d";
+const PROMO_END=new Date('2026-05-20T23:59:59');
+const isPromoActive=()=>new Date()<=PROMO_END;
 let activeDate='',activeTime='',activeVenue='',memberType='new';
 
 function openSheet(date,time,venue){
@@ -258,7 +263,9 @@ function pickMember(type){
   });
   var isNew=memberType==='new';
   var info=isNew
-    ? '<strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + 15 AED admin fee per visit.'
+    ? (isPromoActive()
+        ? '<strong style="color:var(--rose)">🎉 New Member Promo:</strong> 10% off until 20th May! Pay <strong>262.50 AED</strong> (membership + admin fee) via one link.'
+        : '<strong style="color:var(--rose)">New Member:</strong> Pay 290 AED (275 AED membership + 15 AED admin fee) via one link.')
     : '<strong style="color:var(--rose)">Existing Member:</strong> Pay 15 AED admin fee only.';
   var el=document.getElementById('info-box');
   if(el) el.innerHTML=info;
@@ -278,7 +285,7 @@ function renderForm(){
         <div class="member-ico">🔄</div><div class="member-lbl">Existing Member</div>
       </div>
     </div>
-    <div class="info-box" id="info-box"><strong style="color:var(--rose)">New Member:</strong> Pay 275 AED membership (once/year) + 15 AED admin fee per visit.</div>
+    <div class="info-box" id="info-box"><strong style="color:var(--rose)">🎉 New Member Promo:</strong> 10% off until 20th May! Pay <strong>262.50 AED</strong> (membership + admin fee) via one link.</div>
     <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
     <div class="field-2">
       <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
@@ -315,10 +322,12 @@ function confirmBooking(){
       <div class="succ-title">You're confirmed!</div>
       <p class="succ-body">Your spot at <strong>${activeDate} Mastery</strong><br>${activeTime}<br>📍 ${activeVenue}<br><br>Please complete your payment below.</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
-      ${isNew?`<span class="step-label">Step 1 — Annual Membership (once only)</span>
-      <a href="${NOMOD_MEMBERSHIP}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-membership">Pay 275 AED Membership</button></a>
-      <span class="step-label">Step 2 — Admin Fee</span>`:`<span class="step-label">Admin Fee</span>`}
-      <a href="${NOMOD_ADMIN}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-admin">Pay 15 AED Admin Fee</button></a>
+      ${isNew?(isPromoActive()?`<span class="step-label">🎉 Promo — 10% off until 20th May!</span>
+      <a href="${NOMOD_NEW_MEMBER_PROMO}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-membership">Pay 262.50 AED (Promo Price)</button></a>`
+      :`<span class="step-label">New Member Payment (Membership + Admin Fee)</span>
+      <a href="${NOMOD_NEW_MEMBER}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-membership">Pay 290 AED (Membership + Admin Fee)</button></a>`)
+      :`<span class="step-label">Admin Fee</span>
+      <a href="${NOMOD_ADMIN}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.5rem"><button class="pay-btn pay-admin">Pay 15 AED Admin Fee</button></a>`}
       <p class="pay-note">Secure payment powered by Nomod</p>
       <button class="btn-done" onclick="closeSheet()">Done</button>
     </div>`;
