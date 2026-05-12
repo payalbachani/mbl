@@ -104,7 +104,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
 
 <div class="hero">
   <div class="hero-rule">The Mahjong Boutique</div>
-  <div class="camp-tag">🎓 For Kids &amp; Teens 10+ Years</div>
+  <div class="camp-tag">🎓 For Kids &amp; Teens 10–19 Years</div>
   <h1>MindScape<br><em>Smart Play Camp</em></h1>
   <div class="hero-sub">Strategize. Play. Grow.</div>
   <p class="hero-desc">Screen-free fun with real-world skills. Brain games, Mahjong strategy, social play and skills for life!</p>
@@ -113,7 +113,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
   <div class="hero-tags">
     <span class="htag">📍 Villa 68, Jumeirah 1</span>
     <span class="htag">📅 From 16th May</span>
-    <span class="htag">🧠 Ages 10+</span>
+    <span class="htag">🧠 Ages 10–19</span>
   </div>
   <span class="limited">⚡ Limited Seats!</span>
 </div>
@@ -197,7 +197,7 @@ function renderForm(){
     <div class="sheet-meta">${activePkg} · 4 classes · 500 AED<br>📍 Villa 68, Jumeirah 1<br>📅 ${activeDates}</div>
     <div class="field"><label>Parent / Guardian Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
     <div class="field"><label>Child's Name</label><input id="f-child" type="text" placeholder="e.g. Aryan Mehta"></div>
-    <div class="field"><label>Child's Age</label><input id="f-age" type="number" placeholder="e.g. 12" min="10" max="18"></div>
+    <div class="field"><label>Child's Age</label><input id="f-age" type="number" placeholder="e.g. 12" min="10" max="19"></div>
     <div class="field-2">
       <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
       <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
@@ -222,7 +222,7 @@ function confirmBooking(){
   const phone=document.getElementById('f-phone').value.trim();
   if(!name||!child||!age||!email||!phone){alert('Please fill in all fields.');return;}
   if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
-  if(parseInt(age)<10){alert('This camp is for ages 10 and above.');return;}
+  if(parseInt(age)<10||parseInt(age)>19){alert('This camp is for ages 10 to 19.');return;}
   const btn=document.getElementById('book-btn');
   btn.disabled=true;btn.innerHTML='<span class="spin"></span> Confirming...';
   const ref='MBL-'+Math.floor(1000+Math.random()*9000);
