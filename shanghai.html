@@ -254,7 +254,7 @@ function confirmBooking(){
       <div class="succ-title">One Last Step!</div>
       <p class="succ-body">Your spot at <strong>${activeSess.day} Shanghai</strong><br>${activeSess.date} · ${activeSess.time}<br>📍 ${activeSess.venue}<br><br>⚠️ Your spot is NOT confirmed until payment is complete. Please pay now!</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
-      <a href="${nomodLink}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem">
+      <a href="${nomodLink}" target="_blank" onclick="updatePaymentInitiated('${ref}','${name}','${email}')" style="display:block;text-decoration:none;margin-bottom:.65rem">
         <button class="pay-btn">💳 Pay Now via Nomod</button>
       </a>
       <p class="pay-note">Secure payment powered by Nomod</p>
@@ -263,6 +263,7 @@ function confirmBooking(){
 }
 
 renderSessions();
+function updatePaymentInitiated(ref,name,email){fetch(SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"updatePaymentStatus",ref:ref,name:name,email:email,paymentStatus:"Payment Initiated"})}).catch(()=>{});}
 </script>
 <footer>🀄 The Mahjong Boutique · Dubai, UAE</footer>
 </body>
