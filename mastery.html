@@ -299,7 +299,7 @@ function renderForm(){
       <div class="sum-row"><span class="sum-k">Membership</span><span class="sum-v" style="color:var(--rose)">275 AED / year (new only)</span></div>
       <div class="sum-row"><span class="sum-k">Admin Fee</span><span class="sum-v" style="color:var(--gold)">15 AED per visit</span></div>
     </div>
-    <button class="btn-book" id="book-btn" onclick="confirmBooking()">Confirm Booking</button>`;
+    <button class="btn-book" id="book-btn" onclick="confirmBooking()">Proceed to Payment →</button>`;
 }
 
 function confirmBooking(){
@@ -318,8 +318,8 @@ function confirmBooking(){
   }).catch(()=>{});
   document.getElementById('sheet-body').innerHTML=`
     <div class="success">
-      <span class="succ-emoji">🎉</span>
-      <div class="succ-title">You're confirmed!</div>
+      <span class="succ-emoji">💳</span>
+      <div class="succ-title">One Last Step!</div>
       <p class="succ-body">Your spot at <strong>${activeDate} Mastery</strong><br>${activeTime}<br>📍 ${activeVenue}<br><br>Please complete your payment below.</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
       ${isNew?(isPromoActive()?`<span class="step-label">🎉 Promo — 10% off until 20th May!</span>
