@@ -214,8 +214,8 @@ function confirmBooking(){
   document.getElementById('sheet-body').innerHTML=`
     <div class="success">
       <span class="succ-emoji">💳</span>
-      <div class="succ-title">You're confirmed!</div>
-      <p class="succ-body">Your spot at <strong>${activeSess.day}</strong><br>${activeSess.dates}<br>${activeSess.time} · ${activeSess.venue}<br>Complete your payment below.</p>
+      <div class="succ-title">One Last Step!</div>
+      <p class="succ-body">Your spot at <strong>${activeSess.day}</strong><br>${activeSess.dates}<br>${activeSess.time} · ${activeSess.venue}<br>Your spot is not comfirmed until payment is complete. Please pay now!.</p>
       <div class="succ-ref"><div class="succ-ref-lbl">Booking Reference</div><div class="succ-ref-val">${ref}</div></div>
       <a href="${NOMOD_LINK}" target="_blank" style="display:block;text-decoration:none;margin-bottom:.65rem"><button class="pay-btn">💳 Pay Now via Nomod</button></a>
       <p class="pay-note">Secure payment powered by Nomod</p>
