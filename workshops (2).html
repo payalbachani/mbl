@@ -180,13 +180,6 @@ const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_X
 const NOMOD_LINK = "https://pay.nomodapp.com/en/l/cf8bd60781ef418d";
 
 const SESSIONS = [
-  // Weekend Package 1
-  {id:'w1',type:'weekend',day:'Weekends · 25 Apr–3 May',icon:'🗓️',
-    time:'3:00 – 5:00 PM',venue:'Kahloun Jumeirah Park',
-    days:'Sat 25 & Sun 26 Apr · Sat 2 & Sun 3 May',
-    dates:'Sat 25th & Sun 26th Apr · Sat 2nd & Sun 3rd May',
-    classes:'700 AED · 4 classes', bookings:[]},
-
   // Weekend Package 2
   {id:'w2',type:'weekend',day:'Weekends · 9–17 May',icon:'🗓️',
     time:'3:00 – 5:00 PM',venue:'Kahloun Jumeirah Park',
@@ -201,14 +194,21 @@ const SESSIONS = [
     dates:'Sat 23rd & Sun 24th May · Sat 30th & Sun 31st May',
     classes:'700 AED · 4 classes', bookings:[]},
 
-  // Morning 18-21 May
+  // Weekend Package 4 - June
+  {id:'w4',type:'weekend',day:'Weekends · 6–14 Jun',icon:'🗓️',
+    time:'3:00 – 5:00 PM',venue:'Kahloun Jumeirah Park',
+    days:'Sat 6 & Sun 7 Jun · Sat 13 & Sun 14 Jun',
+    dates:'Sat 6th & Sun 7th Jun · Sat 13th & Sun 14th Jun',
+    classes:'700 AED · 4 classes', bookings:[]},
+
+  // Morning 18-22 May
   {id:'m6',type:'weekday-morning',day:'Mornings · 18–22 May',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Mon 18, Tue 19, Wed 20, Fri 22 May',
     dates:'Mon 18th · Tue 19th · Wed 20th · Fri 22nd May',
     classes:'700 AED · 4 classes', bookings:[]},
 
-  // Morning 25-28 May
+  // Morning 25-29 May
   {id:'m7',type:'weekday-morning',day:'Mornings · 25–29 May',icon:'☀️',
     time:'12:00 – 2:00 PM',venue:'Dishtrict',
     days:'Mon 25, Tue 26, Wed 27, Fri 29 May',
@@ -229,14 +229,14 @@ const SESSIONS = [
     dates:'Mon 8th · Tue 9th · Wed 10th · Fri 12th Jun',
     classes:'700 AED · 4 classes', bookings:[]},
 
-  // Evening 18-21 May
+  // Evening 18-22 May
   {id:'e6',type:'weekday-evening',day:'Evenings · 18–22 May',icon:'🌙',
     time:'6:00 – 8:00 PM',venue:'Dishtrict',
     days:'Mon 18, Tue 19, Wed 20, Fri 22 May',
     dates:'Mon 18th · Tue 19th · Wed 20th · Fri 22nd May',
     classes:'700 AED · 4 classes', bookings:[]},
 
-  // Evening 25-28 May
+  // Evening 25-29 May
   {id:'e7',type:'weekday-evening',day:'Evenings · 25–29 May',icon:'🌙',
     time:'6:00 – 8:00 PM',venue:'Dishtrict',
     days:'Mon 25, Tue 26, Wed 27, Fri 29 May',
