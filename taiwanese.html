@@ -420,6 +420,12 @@ function confirmBooking() {
       <button class="btn-done" onclick="closeSheet()">Done ✓</button>
     </div>`;
 }
+
+function saveAndPay(ref, name, email, phone) {
+  fetch(SHEETS_URL, {method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name,email,phone,ref,bookedAt:new Date().toLocaleString('en-GB')})
+  }).catch(()=>{});
+}
 </script>
 
 <footer>🀄 The Mahjong Boutique · Dubai, UAE</footer>
