@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade Route - Youth Mahjong Game Night - The Mahjong Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#17110A;--ink2:#3A2C1E;--muted:#8A7462;--border:#E5D9CC;--bg:#F8F4EF;--card:#FFFFFF;--green:#296040;--r:13px;--shadow:0 2px 12px rgba(23,17,10,.08);
+--c1:#E63946;--c2:#F4A261;--c3:#2A9D8F;--c4:#6B3FA0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem}
+.brand{display:flex;align-items:center;gap:.55rem}
+.brand-tile{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0}
+.brand-tile img{width:100%;height:100%;object-fit:cover;display:block;border-radius:7px}
+.brand-mbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+.brand-sub{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:1px}
+.nav-home{background:var(--ink);color:#fff;border:none;border-radius:7px;padding:.38rem .8rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+.hero{max-width:600px;margin:0 auto;padding:3rem 1.75rem 2rem;text-align:center}
+.hero-badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3),var(--c4));color:#fff;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.35rem 1.1rem;border-radius:99px;margin-bottom:1rem}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,3.8rem);font-weight:700;line-height:1.05;color:var(--ink);margin-bottom:.4rem}
+.hero h1 .trade{color:var(--c1)}
+.hero h1 .route{color:var(--c3)}
+.hero-sub{font-size:.95rem;font-weight:600;color:var(--c4);margin-bottom:.8rem;letter-spacing:.04em}
+.hero-desc{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:380px;margin:0 auto 1.4rem}
+.hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.htag{display:inline-flex;align-items:center;gap:.3rem;background:var(--card);border:1px solid var(--border);border-radius:99px;padding:.28rem .8rem;font-size:.75rem;font-weight:500;color:var(--ink2)}
+.free-badge{display:inline-block;background:linear-gradient(135deg,var(--c2),var(--c1));color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;padding:.5rem 1.5rem;border-radius:99px;margin-bottom:1.2rem}
+.tiles-row{display:flex;justify-content:center;gap:.5rem;margin-bottom:1.5rem}
+.tile-img{width:48px;height:48px;border-radius:6px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.wrap{max-width:520px;margin:0 auto;padding:0 1.5rem 4rem}
+.event-card{background:var(--card);border-radius:16px;overflow:hidden;margin-bottom:1.5rem;border:1px solid var(--border)}
+.event-card-header{background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3));padding:1.2rem 1.5rem;color:#fff}
+.event-card-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
+.event-card-meta{font-size:.82rem;opacity:.9;line-height:1.6}
+.event-card-body{padding:1.2rem 1.5rem}
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);margin-bottom:.3rem}
+.field input,.field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none;appearance:none}
+.field-2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.plus-one-toggle{display:flex;align-items:center;gap:.75rem;background:#F8F4EF;border:1.5px solid var(--border);border-radius:10px;padding:.75rem 1rem;margin-bottom:.9rem;cursor:pointer}
+.plus-one-toggle input[type="checkbox"]{width:18px;height:18px;accent-color:var(--c3);cursor:pointer}
+.plus-one-label{font-size:.88rem;font-weight:600;color:var(--ink2)}
+.plus-one-fields{display:none;background:#F0FBF9;border:1px solid #A8D5CC;border-radius:10px;padding:1rem;margin-bottom:.9rem}
+.plus-one-fields.show{display:block}
+.divider{height:1px;background:var(--border);margin:1.1rem 0}
+.btn-register{width:100%;background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3));color:#fff;border:none;border-radius:10px;padding:.9rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.02em}
+.btn-register:disabled{opacity:.5;cursor:not-allowed}
+.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;display:inline-block;vertical-align:middle}
+@keyframes sp{to{transform:rotate(360deg)}}
+.success{text-align:center;padding:1.5rem}
+.succ-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem}
+.succ-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--c1),var(--c3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.succ-body{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:1rem}
+.succ-ref{background:var(--bg);border:1.5px dashed var(--border);border-radius:10px;padding:.7rem 1rem;margin-bottom:1rem}
+.succ-ref-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--c3)}
+footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:520px){nav{padding:0 1rem}.brand-sub{display:none}.field-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand">
+    <div class="brand-tile"><img src="https://mbldubai.com/logo.jpeg" alt="MBL" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:7px"></div>
+    <div><div class="brand-mbl">The Mahjong Boutique</div><div class="brand-sub">Trade Route</div></div>
+  </div>
+  <a href="/" class="nav-home">Back</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Youth Mahjong Game Night</div>
+  <h1><span class="trade">Trade</span> <span class="route">Route</span></h1>
+  <div class="hero-sub">An Evening of Strategy, Tiles & Good Vibes</div>
+  <p class="hero-desc">Join us for a vibrant youth Mahjong night. Play, connect and discover the art of the tiles in the heart of Dubai.</p>
+  <div class="free-badge">FREE Entry</div>
+  <div class="tiles-row">
+    <span style="font-size:2.8rem">🀇</span>
+    <span style="font-size:2.8rem">🀙</span>
+    <span style="font-size:2.8rem">🀄</span>
+    <span style="font-size:2.8rem">🀀</span>
+    <span style="font-size:2.8rem">🀁</span>
+  </div>
+  <div class="hero-tags">
+    <span class="htag">📅 Tuesday 9th June</span>
+    <span class="htag">📍 Subko, Al Quoz</span>
+    <span class="htag">🎉 Youth Event</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="event-card">
+    <div class="event-card-header">
+      <div class="event-card-title">Register Your Spot</div>
+      <div class="event-card-meta">
+        Tuesday 9th June 2026<br>
+        Subko · Al Quoz Industrial Area 1 · Dubai<br>
+        Free Entry
+      </div>
+    </div>
+    <div class="event-card-body" id="form-body">
+      <div class="field"><label>Full Name</label><input id="f-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
+      <div class="field-2">
+        <div class="field" style="margin-bottom:0"><label>Email</label><input id="f-email" type="email" placeholder="you@email.com"></div>
+        <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="f-phone" type="tel" placeholder="050 123 4567"></div>
+      </div>
+      <div class="divider"></div>
+      <label class="plus-one-toggle" onclick="togglePlusOne()">
+        <input type="checkbox" id="plus-one-check">
+        <span class="plus-one-label">+ Add a Plus One</span>
+      </label>
+      <div class="plus-one-fields" id="plus-one-fields">
+        <div class="field" style="margin-bottom:.6rem"><label>Plus One Name</label><input id="f-plus-name" type="text" placeholder="e.g. Aryan Mehta"></div>
+        <div class="field" style="margin-bottom:0"><label>Plus One WhatsApp</label><input id="f-plus-phone" type="tel" placeholder="050 123 4567"></div>
+      </div>
+      <button class="btn-register" id="reg-btn" onclick="registerNow()">Reserve My Spot</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var SHEETS_URL="https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
+
+function togglePlusOne(){
+  var check=document.getElementById("plus-one-check");
+  var fields=document.getElementById("plus-one-fields");
+  fields.classList.toggle("show",check.checked);
+}
+
+function registerNow(){
+  var name=document.getElementById("f-name").value.trim();
+  var email=document.getElementById("f-email").value.trim();
+  var phone=document.getElementById("f-phone").value.trim();
+  if(!name||!email||!phone){alert("Please fill in all fields.");return;}
+  if(!email.match(/\S+@\S+\.\S+/)){alert("Please enter a valid email.");return;}
+  var btn=document.getElementById("reg-btn");
+  btn.disabled=true;
+  btn.innerHTML="<span class=\"spin\"></span> Registering...";
+  var hasPlusOne=document.getElementById("plus-one-check").checked;
+  var plusName=hasPlusOne?document.getElementById("f-plus-name").value.trim():"";
+  var plusPhone=hasPlusOne?document.getElementById("f-plus-phone").value.trim():"";
+  var ref="TR-"+Math.floor(1000+Math.random()*9000);
+  var guests=hasPlusOne?"2 (+ "+plusName+")":" 1";
+  fetch(SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({name:name,email:email,phone:phone,session:"Trade Route Youth Mahjong Game Night",date:"Tuesday 9th June 2026",time:"Evening",venue:"Subko, Al Quoz Industrial Area 1, Dubai",ref:ref,bookedAt:new Date().toLocaleString("en-GB"),amountDue:"Free",plusOne:hasPlusOne?"Yes - "+plusName+" "+plusPhone:"No"})
+  }).catch(function(){});
+  document.getElementById("form-body").innerHTML=
+    "<div class=\"success\">"
+    +"<span class=\"succ-emoji\">🎉</span>"
+    +"<div class=\"succ-title\">Yay! Your Spot is Confirmed!</div>"
+    +"<p class=\"succ-body\">We can't wait to see you at <strong>Trade Route</strong>!<br><br>"
+    +"Tuesday 9th June 2026<br>"
+    +"Subko, Al Quoz Industrial Area 1, Dubai<br><br>"
+    +(hasPlusOne?"You and <strong>"+plusName+"</strong> are both registered!<br><br>":"")
+    +"See you on the tiles!</p>"
+    +"<div class=\"succ-ref\"><div class=\"succ-ref-lbl\">Registration Reference</div><div class=\"succ-ref-val\">"+ref+"</div></div>"
+    +"</div>";
+}
+</script>
+<footer>The Mahjong Boutique - Dubai, UAE</footer>
+</body>
+</html>
