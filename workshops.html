@@ -181,61 +181,28 @@ var NOMOD_WEEKEND="https://pay.nomodapp.com/en/l/25986150434040ef";
 var NOMOD_WEEKDAY="https://pay.nomodapp.com/en/l/08c671b506904769";
 
 const SESSIONS = [
-  // Weekend Package 5 - 20-28 Jun
-  {id:'w5',type:'weekend',day:'Weekends · 20–28 Jun',icon:'🗓️',
-    time:'3:00 – 5:00 PM',venue:'Kahloun Jumeirah Park',
-    days:'Sat 20 & Sun 21 Jun · Sat 27 & Sun 28 Jun',
-    dates:'Sat 20th & Sun 21st Jun · Sat 27th & Sun 28th Jun',
-    classes:'700 AED · 4 classes', bookings:[]},
+  // Weekends July
+  {id:'w7',type:'weekend',day:'Weekends 18-26 Jul',icon:'🗓️',time:'3:00 - 5:00 PM',venue:'Kahloun Jumeirah Park',dates:'Sat 18th & Sun 19th Jul · Sat 25th & Sun 26th Jul',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'w8',type:'weekend',day:'Weekends 1-9 Aug',icon:'🗓️',time:'3:00 - 5:00 PM',venue:'Kahloun Jumeirah Park',dates:'Sat 1st & Sun 2nd Aug · Sat 8th & Sun 9th Aug',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'w9',type:'weekend',day:'Weekends 15-23 Aug',icon:'🗓️',time:'3:00 - 5:00 PM',venue:'Kahloun Jumeirah Park',dates:'Sat 15th & Sun 16th Aug · Sat 22nd & Sun 23rd Aug',classes:'700 AED · 4 classes',bookings:[]},
 
-  // Weekend Package 6 - 4-12 Jul
-  {id:'w6',type:'weekend',day:'Weekends · 4–12 Jul',icon:'🗓️',
-    time:'3:00 – 5:00 PM',venue:'Kahloun Jumeirah Park',
-    days:'Sat 4 & Sun 5 Jul · Sat 11 & Sun 12 Jul',
-    dates:'Sat 4th & Sun 5th Jul · Sat 11th & Sun 12th Jul',
-    classes:'700 AED · 4 classes', bookings:[]},
+  // Mornings July
+  {id:'m13',type:'weekday-morning',day:'Mornings 7-10 Jul',icon:'☀️',time:'12:00 - 2:00 PM',venue:'Dishtrict',dates:'Tue 7th · Wed 8th · Thu 9th · Fri 10th Jul',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'m14',type:'weekday-morning',day:'Mornings 14-17 Jul',icon:'☀️',time:'12:00 - 2:00 PM',venue:'Dishtrict',dates:'Tue 14th · Wed 15th · Thu 16th · Fri 17th Jul',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'m15',type:'weekday-morning',day:'Mornings 21-24 Jul',icon:'☀️',time:'12:00 - 2:00 PM',venue:'Dishtrict',dates:'Tue 21st · Wed 22nd · Thu 23rd · Fri 24th Jul',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'m16',type:'weekday-morning',day:'Mornings 28-31 Jul',icon:'☀️',time:'12:00 - 2:00 PM',venue:'Dishtrict',dates:'Tue 28th · Wed 29th · Thu 30th · Fri 31st Jul',classes:'700 AED · 4 classes',bookings:[]},
 
-  // Morning 15-19 Jun
-  {id:'m10',type:'weekday-morning',day:'Mornings · 15–19 Jun',icon:'☀️',
-    time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 15, Tue 16, Wed 17, Fri 19 Jun',
-    dates:'Mon 15th · Tue 16th · Wed 17th · Fri 19th Jun',
-    classes:'700 AED · 4 classes', bookings:[]},
+  // Mornings August
+  {id:'m17',type:'weekday-morning',day:'Mornings 4-7 Aug',icon:'☀️',time:'12:00 - 2:00 PM',venue:'Dishtrict',dates:'Tue 4th · Wed 5th · Thu 6th · Fri 7th Aug',classes:'700 AED · 4 classes',bookings:[]},
 
-  // Morning 22-26 Jun
-  {id:'m11',type:'weekday-morning',day:'Mornings · 22–26 Jun',icon:'☀️',
-    time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 22, Tue 23, Wed 24, Fri 26 Jun',
-    dates:'Mon 22nd · Tue 23rd · Wed 24th · Fri 26th Jun',
-    classes:'700 AED · 4 classes', bookings:[]},
+  // Evenings July
+  {id:'e13',type:'weekday-evening',day:'Evenings 7-10 Jul',icon:'🌙',time:'6:00 - 8:00 PM',venue:'Dishtrict',dates:'Tue 7th · Wed 8th · Thu 9th · Fri 10th Jul',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'e14',type:'weekday-evening',day:'Evenings 14-17 Jul',icon:'🌙',time:'6:00 - 8:00 PM',venue:'Dishtrict',dates:'Tue 14th · Wed 15th · Thu 16th · Fri 17th Jul',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'e15',type:'weekday-evening',day:'Evenings 21-24 Jul',icon:'🌙',time:'6:00 - 8:00 PM',venue:'Dishtrict',dates:'Tue 21st · Wed 22nd · Thu 23rd · Fri 24th Jul',classes:'700 AED · 4 classes',bookings:[]},
+  {id:'e16',type:'weekday-evening',day:'Evenings 28-31 Jul',icon:'🌙',time:'6:00 - 8:00 PM',venue:'Dishtrict',dates:'Tue 28th · Wed 29th · Thu 30th · Fri 31st Jul',classes:'700 AED · 4 classes',bookings:[]},
 
-  // Morning 29 Jun - 3 Jul
-  {id:'m12',type:'weekday-morning',day:'Mornings · 29 Jun–3 Jul',icon:'☀️',
-    time:'12:00 – 2:00 PM',venue:'Dishtrict',
-    days:'Mon 29 Jun, Tue 30 Jun, Wed 1 Jul, Fri 3 Jul',
-    dates:'Mon 29th Jun · Tue 30th Jun · Wed 1st Jul · Fri 3rd Jul',
-    classes:'700 AED · 4 classes', bookings:[]},
-
-  // Evening 15-19 Jun
-  {id:'e10',type:'weekday-evening',day:'Evenings · 15–19 Jun',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Dishtrict',
-    days:'Mon 15, Tue 16, Wed 17, Fri 19 Jun',
-    dates:'Mon 15th · Tue 16th · Wed 17th · Fri 19th Jun',
-    classes:'700 AED · 4 classes', bookings:[]},
-
-  // Evening 22-26 Jun
-  {id:'e11',type:'weekday-evening',day:'Evenings · 22–26 Jun',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Dishtrict',
-    days:'Mon 22, Tue 23, Wed 24, Fri 26 Jun',
-    dates:'Mon 22nd · Tue 23rd · Wed 24th · Fri 26th Jun',
-    classes:'700 AED · 4 classes', bookings:[]},
-
-  // Evening 29 Jun - 3 Jul
-  {id:'e12',type:'weekday-evening',day:'Evenings · 29 Jun–3 Jul',icon:'🌙',
-    time:'6:00 – 8:00 PM',venue:'Dishtrict',
-    days:'Mon 29 Jun, Tue 30 Jun, Wed 1 Jul, Fri 3 Jul',
-    dates:'Mon 29th Jun · Tue 30th Jun · Wed 1st Jul · Fri 3rd Jul',
-    classes:'700 AED · 4 classes', bookings:[]},
+  // Evenings August
+  {id:'e17',type:'weekday-evening',day:'Evenings 4-7 Aug',icon:'🌙',time:'6:00 - 8:00 PM',venue:'Dishtrict',dates:'Tue 4th · Wed 5th · Thu 6th · Fri 7th Aug',classes:'700 AED · 4 classes',bookings:[]},
 ];
 
 let activeSess = SESSIONS[0];
