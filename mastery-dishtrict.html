@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahjong Mastery Dishtrict — The Mahjong Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#17110A;--ink2:#3A2C1E;--muted:#8A7462;--border:#E5D9CC;--bg:#F8F4EF;--card:#FFFFFF;--gold:#B8880A;--green:#296040;--rose:#C0306A;--r:13px;--shadow:0 2px 12px rgba(23,17,10,.08)}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:200;height:58px;background:rgba(248,244,239,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.75rem}
+.brand{display:flex;align-items:center;gap:.55rem}
+.brand-tile{width:32px;height:32px;border-radius:7px;overflow:hidden;flex-shrink:0}
+.brand-tile img{width:100%;height:100%;object-fit:cover;display:block;border-radius:7px}
+.brand-mbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink)}
+.brand-sub{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:1px}
+.nav-home{background:var(--ink);color:#fff;border:none;border-radius:7px;padding:.38rem .8rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;text-decoration:none;display:inline-block}
+.hero{max-width:600px;margin:0 auto;padding:3rem 1.75rem 2rem;text-align:center}
+.hero-rule{display:flex;align-items:center;justify-content:center;gap:.7rem;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--rose);margin-bottom:1rem}
+.hero-rule::before,.hero-rule::after{content:'';width:36px;height:1px;background:linear-gradient(90deg,transparent,var(--rose))}
+.hero-rule::after{transform:scaleX(-1)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;line-height:1.05;color:var(--ink);margin-bottom:.7rem}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero-desc{color:var(--muted);font-size:.92rem;line-height:1.7;max-width:380px;margin:0 auto 1.2rem}
+.hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.htag{display:inline-flex;align-items:center;gap:.3rem;background:var(--card);border:1px solid var(--border);border-radius:99px;padding:.28rem .8rem;font-size:.75rem;font-weight:500;color:var(--ink2)}
+.wrap{max-width:660px;margin:0 auto;padding:0 1.5rem 4rem}
+.sec-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.sec-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.sec-line{flex:1;height:1px;background:var(--border)}
+.membership-card{background:linear-gradient(135deg,#FFF0F5,#FFE8F0);border:1.5px solid #E8B0C8;border-radius:var(--r);padding:1.4rem 1.5rem;margin-bottom:2rem}
+.membership-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--rose);margin-bottom:.4rem}
+.membership-desc{font-size:.82rem;color:var(--ink2);line-height:1.6;margin-bottom:.6rem}
+.membership-warning{font-size:.78rem;color:var(--muted);background:#fff;border:1px solid #E8B0C8;border-radius:8px;padding:.6rem .9rem;margin-bottom:1rem;line-height:1.5}
+.membership-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--rose);margin-bottom:1rem}
+.membership-btn{display:block;width:100%;background:var(--rose);color:#fff;border:none;border-radius:10px;padding:.85rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center;text-decoration:none}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.15rem 1.4rem;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .18s;position:relative;overflow:hidden;margin-bottom:.6rem}
+.scard-stripe{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--rose);border-radius:4px 0 0 4px}
+.scard:hover{border-color:#C8BAA8;box-shadow:var(--shadow);transform:translateY(-1px)}
+.sinfo-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;margin-bottom:.18rem}
+.sinfo-meta{font-size:.78rem;color:var(--muted);margin-bottom:.25rem}
+.sinfo-price{font-size:.8rem;font-weight:600;color:var(--gold)}
+.sbook-btn{background:var(--rose);color:#fff;border:none;border-radius:99px;padding:.3rem .85rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;margin-top:.55rem;display:inline-block}
+.overlay{position:fixed;inset:0;z-index:400;background:rgba(23,17,10,.52);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s}
+@media(min-width:540px){.overlay{align-items:center}}
+.overlay.open{opacity:1;pointer-events:all}
+.sheet{background:var(--card);border-radius:20px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;padding:1.8rem 1.8rem 2rem;transform:translateY(20px) scale(.98);transition:transform .32s cubic-bezier(.34,1.4,.64,1);position:relative}
+.overlay.open .sheet{transform:none}
+.sheet-x{position:absolute;top:1.15rem;right:1.15rem;width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;font-size:.88rem;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.sheet-type{display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .65rem;border-radius:99px;margin-bottom:.55rem}
+.sheet-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:.2rem}
+.sheet-meta{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:1.1rem}
+.field{margin-bottom:.9rem}
+.field label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2);margin-bottom:.3rem}
+.field input,.field select{width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none}
+.field-2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.divider{height:1px;background:var(--border);margin:1.1rem 0}
+.warning-box{background:#FFF8E1;border:1px solid #FFD54F;border-radius:10px;padding:.85rem 1rem;margin-bottom:1rem;font-size:.82rem;color:var(--ink2);line-height:1.6}
+.summary-box{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;margin-bottom:1.1rem}
+.sum-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.81rem;margin-bottom:.3rem}
+.sum-row:last-child{margin-bottom:0}
+.sum-k{color:var(--muted)}
+.sum-v{font-weight:600}
+.btn-book{width:100%;background:var(--rose);color:#fff;border:none;border-radius:10px;padding:.85rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.45rem;margin-top:.5rem}
+.btn-book:disabled{opacity:.5;cursor:not-allowed}
+.spin{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.success{text-align:center;padding:.5rem 0}
+.succ-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem}
+.succ-title{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.succ-body{color:var(--muted);font-size:.86rem;line-height:1.65;margin-bottom:1.3rem}
+.succ-ref{background:var(--bg);border:1.5px dashed var(--border);border-radius:10px;padding:.7rem 1rem;margin-bottom:1rem}
+.succ-ref-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.succ-ref-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--rose)}
+.btn-done{background:var(--green);color:#fff;border:none;border-radius:10px;padding:.72rem 2rem;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer}
+footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);border-top:1px solid var(--border)}
+@media(max-width:520px){nav{padding:0 1rem}.brand-sub{display:none}.field-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand">
+    <div class="brand-tile"><img src="https://mbldubai.com/logo.jpeg" alt="MBL" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:7px"></div>
+    <div><div class="brand-mbl">The Mahjong Boutique</div><div class="brand-sub">Mastery · Dishtrict</div></div>
+  </div>
+  <a href="/" class="nav-home">Back</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-rule">The Mahjong Boutique</div>
+  <h1>Mahjong<br><em>Mastery &amp; Scoring</em></h1>
+  <p class="hero-desc">Elevate your game with our weekly Friday Mastery sessions. Advanced scoring, strategy and competitive play.</p>
+  <div class="hero-tags">
+    <span class="htag">📍 Dishtrict</span>
+    <span class="htag">🕔 Every Friday 5:00 – 7:00 PM</span>
+    <span class="htag">✉️ Instant confirmation</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="sec-head">
+    <span class="sec-label">Step 1 — Annual Membership</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="membership-card">
+    <div class="membership-title">🌟 New Member? Join TMB Mastery</div>
+    <div class="membership-desc">Annual membership gives you access to all Mastery sessions throughout the year at all locations.</div>
+    <div class="membership-warning">⚠️ Membership alone does NOT reserve your spot at any session. You must pay the 15 AED admin fee separately for each session you attend.</div>
+    <div class="membership-price">275 AED / year</div>
+    <button class="membership-btn" onclick="openMemberForm()">🌟 Join Now — 275 AED</button>
+  </div>
+
+  <div class="sec-head" style="margin-top:1rem">
+    <span class="sec-label">Step 2 — Book a Session · 15 AED Admin Fee</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="sec-head" style="margin-bottom:.5rem">
+    <span class="sec-label">Friday Sessions · 5:00 – 7:00 PM</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 10th July','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 10th July</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 17th July','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 17th July</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 24th July','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 24th July</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 31st July','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 31st July</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 7th August','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 7th August</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 14th August','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 14th August</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 21st August','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 21st August</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Friday 28th August','5:00 – 7:00 PM','Dishtrict')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌅</div>
+      <div><div class="sinfo-title">Friday 28th August</div><div class="sinfo-meta">🕔 5:00 – 7:00 PM · 📍 Dishtrict</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn">Book →</button>
+  </div>
+
+</div>
+
+<div class="overlay" id="member-overlay" onclick="if(event.target.id==='member-overlay')closeMemberForm()">
+  <div class="sheet" id="member-sheet">
+    <button class="sheet-x" onclick="closeMemberForm()">X</button>
+    <div id="member-body">
+      <span class="sheet-type" style="background:#FFF0F5;color:var(--rose)">Annual Membership</span>
+      <div class="sheet-title">Join TMB Mastery</div>
+      <div class="sheet-meta">275 AED / year · Access to all Mastery sessions</div>
+      <div class="field"><label>Full Name</label><input id="m-name" type="text" placeholder="e.g. Priya Mehta" autocomplete="name"></div>
+      <div class="field-2">
+        <div class="field" style="margin-bottom:0"><label>Email</label><input id="m-email" type="email" placeholder="you@email.com"></div>
+        <div class="field" style="margin-bottom:0"><label>WhatsApp</label><input id="m-phone" type="tel" placeholder="050 123 4567"></div>
+      </div>
+      <div class="field"><label>Location</label>
+        <select id="m-location" style="width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:DM Sans,sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none">
+          <option value="Dishtrict">Dishtrict (Fri 5-7 PM)</option>
+        </select>
+      </div>
+      <div class="divider"></div>
+      <div class="summary-box">
+        <div class="sum-row"><span class="sum-k">Membership</span><span class="sum-v" style="color:var(--rose)">275 AED / year</span></div>
+        <div class="sum-row"><span class="sum-k">Access</span><span class="sum-v">All Mastery Sessions</span></div>
+        <div class="sum-row"><span class="sum-k">Admin Fee</span><span class="sum-v" style="color:var(--gold)">15 AED per session — pay separately each time</span></div>
+      </div>
+      <button class="btn-book" id="member-btn" onclick="submitMembership()">Proceed to Payment</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="if(event.target.id==='overlay')closeSheet()">
+  <div class="sheet" id="sheet">
+    <button class="sheet-x" onclick="closeSheet()">X</button>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<script>
+var SHEETS_URL="https://script.google.com/macros/s/AKfycbwotXtQ0ZV4rM2NZKS_XCfEQ_QJEzgfL9EqeRKNIgA2UlBaDIpkWgvk8MVJK_eWdCRfYw/exec";
+var NOMOD_MEMBERSHIP="https://pay.nomodapp.com/en/l/0cc954bcd0ad4ba3";
+var NOMOD_ADMIN="https://pay.nomodapp.com/en/l/0fd7536e70584c30";
+var activeDate="",activeTime="",activeVenue="";
+
+function openMemberForm(){
+  document.getElementById("member-overlay").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeMemberForm(){
+  document.getElementById("member-overlay").classList.remove("open");
+  document.body.style.overflow="";
+}
+function openSheet(date,time,venue){
+  activeDate=date;activeTime=time;activeVenue=venue;
+  document.getElementById("sheet-body").innerHTML=
+    "<span class=\"sheet-type\" style=\"background:#FFF0F5;color:var(--rose)\">Mastery Session</span>"
+    +"<div class=\"sheet-title\">"+date+"</div>"
+    +"<div class=\"sheet-meta\">"+time+"<br>"+venue+"</div>"
+    +"<div class=\"warning-box\">You must be an <strong>annual member</strong> to attend. If you have not paid your 275 AED membership yet, please do so first.</div>"
+    +"<div class=\"field\"><label>Full Name</label><input id=\"f-name\" type=\"text\" placeholder=\"e.g. Priya Mehta\" autocomplete=\"name\"></div>"
+    +"<div class=\"field-2\">"
+    +"<div class=\"field\" style=\"margin-bottom:0\"><label>Email</label><input id=\"f-email\" type=\"email\" placeholder=\"you@email.com\"></div>"
+    +"<div class=\"field\" style=\"margin-bottom:0\"><label>WhatsApp</label><input id=\"f-phone\" type=\"tel\" placeholder=\"050 123 4567\"></div>"
+    +"</div>"
+    +"<div class=\"divider\"></div>"
+    +"<div class=\"summary-box\">"
+    +"<div class=\"sum-row\"><span class=\"sum-k\">Session</span><span class=\"sum-v\">"+date+"</span></div>"
+    +"<div class=\"sum-row\"><span class=\"sum-k\">Time</span><span class=\"sum-v\">"+time+"</span></div>"
+    +"<div class=\"sum-row\"><span class=\"sum-k\">Venue</span><span class=\"sum-v\">"+venue+"</span></div>"
+    +"<div class=\"sum-row\"><span class=\"sum-k\">Admin Fee</span><span class=\"sum-v\" style=\"color:var(--gold)\">15 AED - confirms your spot</span></div>"
+    +"</div>"
+    +"<button class=\"btn-book\" id=\"book-btn\" onclick=\"confirmBooking()\">Proceed to Payment</button>";
+  document.getElementById("overlay").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeSheet(){
+  document.getElementById("overlay").classList.remove("open");
+  document.body.style.overflow="";
+}
+function confirmBooking(){
+  var name=document.getElementById("f-name").value.trim();
+  var email=document.getElementById("f-email").value.trim();
+  var phone=document.getElementById("f-phone").value.trim();
+  if(!name||!email||!phone){alert("Please fill in all fields.");return;}
+  if(!email.match(/\S+@\S+\.\S+/)){alert("Please enter a valid email.");return;}
+  var btn=document.getElementById("book-btn");
+  btn.disabled=true;btn.textContent="Confirming...";
+  var ref="TMB-"+Math.floor(1000+Math.random()*9000);
+  var d=activeDate,t=activeTime,v=activeVenue;
+  document.getElementById("sheet-body").innerHTML=
+    "<div class=\"success\">"
+    +"<span class=\"succ-emoji\">💳</span>"
+    +"<div class=\"succ-title\">One Last Step!</div>"
+    +"<p class=\"succ-body\">Your spot at <strong>"+d+" Mastery</strong> is <strong>NOT confirmed</strong> until the 15 AED admin fee is paid.<br><br>"+t+" · "+v+"</p>"
+    +"<div class=\"succ-ref\"><div class=\"succ-ref-lbl\">Booking Reference</div><div class=\"succ-ref-val\">"+ref+"</div></div>"
+    +"<a href=\""+NOMOD_ADMIN+"\" target=\"_blank\" id=\"pay-link\" style=\"display:block;text-decoration:none;margin-bottom:.5rem\">"
+    +"<button style=\"display:block;width:100%;background:#2D7A4F;color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:DM Sans,sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center\">Pay 15 AED Admin Fee</button>"
+    +"</a>"
+    +"<p style=\"text-align:center;font-size:.74rem;color:var(--muted);margin-top:.3rem;margin-bottom:.8rem\">Secure payment powered by Nomod</p>"
+    +"<button class=\"btn-done\" onclick=\"closeSheet()\">Done</button>"
+    +"</div>";
+  document.getElementById("pay-link").addEventListener("click",function(){
+    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({name:name,email:email,phone:phone,session:d+" Mahjong Mastery",memberType:"Member",date:d,time:t,venue:v,ref:ref,bookedAt:new Date().toLocaleString("en-GB"),amountDue:"15 AED admin fee"})
+    }).catch(function(){});
+  });
+}
+function submitMembership(){
+  var name=document.getElementById("m-name").value.trim();
+  var email=document.getElementById("m-email").value.trim();
+  var phone=document.getElementById("m-phone").value.trim();
+  var location=document.getElementById("m-location").value;
+  if(!name||!email||!phone){alert("Please fill in all fields.");return;}
+  if(!email.match(/\S+@\S+\.\S+/)){alert("Please enter a valid email.");return;}
+  var btn=document.getElementById("member-btn");
+  btn.disabled=true;btn.textContent="Saving...";
+  var ref="TMB-M-"+Math.floor(1000+Math.random()*9000);
+  document.getElementById("member-body").innerHTML=
+    "<div class=\"success\">"
+    +"<span class=\"succ-emoji\">🌟</span>"
+    +"<div class=\"succ-title\">Welcome to TMB Mastery!</div>"
+    +"<p class=\"succ-body\">Hi <strong>"+name+"</strong>! Please complete your membership payment below.<br><br>Once paid, book individual sessions using the 15 AED admin fee.</p>"
+    +"<div class=\"succ-ref\"><div class=\"succ-ref-lbl\">Reference</div><div class=\"succ-ref-val\">"+ref+"</div></div>"
+    +"<a href=\""+NOMOD_MEMBERSHIP+"\" target=\"_blank\" id=\"mem-pay-link\" style=\"display:block;text-decoration:none;margin-bottom:.5rem\">"
+    +"<button style=\"display:block;width:100%;background:var(--rose);color:#fff;border:none;border-radius:10px;padding:.82rem 1.5rem;font-family:DM Sans,sans-serif;font-size:.92rem;font-weight:600;cursor:pointer;text-align:center\">Pay 275 AED Membership</button>"
+    +"</a>"
+    +"<p style=\"text-align:center;font-size:.74rem;color:var(--muted);margin-top:.3rem;margin-bottom:.8rem\">Secure payment powered by Nomod</p>"
+    +"<button class=\"btn-done\" onclick=\"closeMemberForm()\">Done</button>"
+    +"</div>";
+  document.getElementById("mem-pay-link").addEventListener("click",function(){
+    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({name:name,email:email,phone:phone,session:"TMB Mastery Membership",memberType:"New Member",date:"Annual",time:"",venue:location,ref:ref,bookedAt:new Date().toLocaleString("en-GB"),amountDue:"275 AED membership"})
+    }).catch(function(){});
+  });
+}
+</script>
+<footer>The Mahjong Boutique - Dubai, UAE</footer>
+</body>
+</html>
