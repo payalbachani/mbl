@@ -84,24 +84,6 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
     <div class="sec-line"></div>
   </div>
 
-  <div class="scard" onclick="openSheet('Tuesday 8th September','6:30 – 9:00 PM','Occo Hessa Street')">
-    <div class="scard-stripe"></div>
-    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
-      <div style="font-size:1.8rem">🌙</div>
-      <div><div class="sinfo-title">Tuesday 8th September</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
-    </div>
-    <button class="sbook-btn">Book →</button>
-  </div>
-
-  <div class="scard" onclick="openSheet('Tuesday 15th September','6:30 – 9:00 PM','Occo Hessa Street')">
-    <div class="scard-stripe"></div>
-    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
-      <div style="font-size:1.8rem">🌙</div>
-      <div><div class="sinfo-title">Tuesday 15th September</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
-    </div>
-    <button class="sbook-btn">Book →</button>
-  </div>
-
   <div class="scard" onclick="openSheet('Tuesday 22nd September','6:30 – 9:00 PM','Occo Hessa Street')">
     <div class="scard-stripe"></div>
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
@@ -118,6 +100,33 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
       <div><div class="sinfo-title">Tuesday 29th September</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
     </div>
     <button class="sbook-btn">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 6th October','6:30 – 9:00 PM','Occo Hessa Street')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div><div class="sinfo-title">Tuesday 6th October</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn" onclick="event.stopPropagation();openSheet('Tuesday 6th October','6:30 – 9:00 PM','Occo Hessa Street')">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 13th October','6:30 – 9:00 PM','Occo Hessa Street')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div><div class="sinfo-title">Tuesday 13th October</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn" onclick="event.stopPropagation();openSheet('Tuesday 13th October','6:30 – 9:00 PM','Occo Hessa Street')">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 20th October','6:30 – 9:00 PM','Occo Hessa Street')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div><div class="sinfo-title">Tuesday 20th October</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn" onclick="event.stopPropagation();openSheet('Tuesday 20th October','6:30 – 9:00 PM','Occo Hessa Street')">Book →</button>
   </div>
 </div>
 
@@ -188,6 +197,29 @@ function confirmBooking(){
     }).catch(function(){});
   });
 }
+
+
+function autoHidePastDates(){
+  var today=new Date();
+  var cutoff=new Date(today.getTime()-(45*24*60*60*1000));
+  var year=today.getFullYear();
+  document.querySelectorAll(".scard").forEach(function(card){
+    var el=card.querySelector(".sinfo-title");
+    if(!el)return;
+    var dateStr=el.textContent.trim().replace(/([0-9]+)(st|nd|rd|th)/,"$1");
+    var parsed=new Date(dateStr+" "+year);
+    if(!isNaN(parsed)&&parsed<cutoff)card.style.display="none";
+  });
+  document.querySelectorAll(".sec-head").forEach(function(h){
+    var next=h.nextElementSibling,hasVisible=false;
+    while(next&&!next.classList.contains("sec-head")){
+      if(next.classList.contains("scard")&&next.style.display!=="none"){hasVisible=true;break;}
+      next=next.nextElementSibling;
+    }
+    if(!hasVisible)h.style.display="none";
+  });
+}
+document.addEventListener("DOMContentLoaded",autoHidePastDates);
 
 </script>
 <footer>The Mahjong Boutique - Dubai, UAE</footer>
