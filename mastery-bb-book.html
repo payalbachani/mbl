@@ -183,7 +183,7 @@ function confirmBooking(){
     +"<button class=\"btn-done\" onclick=\"closeSheet()\">Done</button>"
     +"</div>";
   document.getElementById("pay-link").addEventListener("click",function(){
-    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},
+    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"application/json"},
       body:JSON.stringify({name:name,email:email,phone:phone,session:d+" Mahjong Mastery",memberType:"Member",date:d,time:t,venue:v,ref:ref,bookedAt:new Date().toLocaleString("en-GB"),amountDue:"15 AED admin fee"})
     }).catch(function(){});
   });
