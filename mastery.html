@@ -136,7 +136,7 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
         <select id="m-location" style="width:100%;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:9px;font-family:DM Sans,sans-serif;font-size:.9rem;background:var(--bg);color:var(--ink);outline:none">
           <option value="Business Bay">Occo Restaurant Business Bay (Thu 12-2 PM)</option>
           <option value="Hessa Street">Occo Hessa Street (Tue 6:30-9 PM)</option>
-          <option value="Dishtrict">Dishtrict (Fri 5-7 PM)</option>
+          <option value="Villa 68">Villa 68 (Fri 5-7 PM)</option>
           <option value="Hola Time Square">Hola, Time Square Centre (Mon 2-4:30 PM)</option>
         </select>
       </div>
@@ -222,7 +222,7 @@ function confirmBooking(){
     +"<button class=\"btn-done\" onclick=\"closeSheet()\">Done</button>"
     +"</div>";
   document.getElementById("pay-link").addEventListener("click",function(){
-    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},
+    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"application/json"},
       body:JSON.stringify({name:name,email:email,phone:phone,session:d+" Mahjong Mastery",memberType:"Member",date:d,time:t,venue:v,ref:ref,bookedAt:new Date().toLocaleString("en-GB"),amountDue:"15 AED admin fee"})
     }).catch(function(){});
   });
@@ -250,11 +250,34 @@ function submitMembership(){
     +"<button class=\"btn-done\" onclick=\"closeMemberForm()\">Done</button>"
     +"</div>";
   document.getElementById("mem-pay-link").addEventListener("click",function(){
-    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},
+    fetch(SHEETS_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"application/json"},
       body:JSON.stringify({name:name,email:email,phone:phone,session:"TMB Mastery Membership",memberType:"New Member",date:"Annual",time:"",venue:location,ref:ref,bookedAt:new Date().toLocaleString("en-GB"),amountDue:"275 AED membership"})
     }).catch(function(){});
   });
 }
+
+function autoHidePastDates(){
+  var today=new Date();
+  var cutoff=new Date(today.getTime()-(45*24*60*60*1000));
+  var year=today.getFullYear();
+  document.querySelectorAll(".scard").forEach(function(card){
+    var el=card.querySelector(".sinfo-title");
+    if(!el)return;
+    var dateStr=el.textContent.trim().replace(/([0-9]+)(st|nd|rd|th)/,"$1");
+    var parsed=new Date(dateStr+" "+year);
+    if(!isNaN(parsed)&&parsed<cutoff)card.style.display="none";
+  });
+  document.querySelectorAll(".sec-head").forEach(function(h){
+    var next=h.nextElementSibling,hasVisible=false;
+    while(next&&!next.classList.contains("sec-head")){
+      if(next.classList.contains("scard")&&next.style.display!=="none"){hasVisible=true;break;}
+      next=next.nextElementSibling;
+    }
+    if(!hasVisible)h.style.display="none";
+  });
+}
+document.addEventListener("DOMContentLoaded",autoHidePastDates);
+
 </script>
 <footer>The Mahjong Boutique - Dubai, UAE</footer>
 </body>
