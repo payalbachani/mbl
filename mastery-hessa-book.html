@@ -129,6 +129,33 @@ footer{text-align:center;padding:1.5rem;font-size:.74rem;color:var(--muted);bord
     <button class="sbook-btn" onclick="event.stopPropagation();openSheet('Tuesday 29th December','6:30 – 9:00 PM','Occo Hessa Street')">Book →</button>
   </div>
 
+  <div class="scard" onclick="openSheet('Tuesday 5th January','6:30 – 9:00 PM','Occo Hessa Street')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div><div class="sinfo-title">Tuesday 5th January</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn" onclick="event.stopPropagation();openSheet('Tuesday 5th January','6:30 – 9:00 PM','Occo Hessa Street')">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 12th January','6:30 – 9:00 PM','Occo Hessa Street')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div><div class="sinfo-title">Tuesday 12th January</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn" onclick="event.stopPropagation();openSheet('Tuesday 12th January','6:30 – 9:00 PM','Occo Hessa Street')">Book →</button>
+  </div>
+
+  <div class="scard" onclick="openSheet('Tuesday 19th January','6:30 – 9:00 PM','Occo Hessa Street')">
+    <div class="scard-stripe"></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.55rem">
+      <div style="font-size:1.8rem">🌙</div>
+      <div><div class="sinfo-title">Tuesday 19th January</div><div class="sinfo-meta">6:30 – 9:00 PM · 📍 Occo Hessa Street</div><div class="sinfo-price">15 AED · confirms your spot</div></div>
+    </div>
+    <button class="sbook-btn" onclick="event.stopPropagation();openSheet('Tuesday 19th January','6:30 – 9:00 PM','Occo Hessa Street')">Book →</button>
+  </div>
+
 </div>
 
 <div class="overlay" id="overlay" onclick="if(event.target.id==='overlay')closeSheet()">
@@ -209,6 +236,7 @@ function autoHidePastDates(){
     if(!el)return;
     var dateStr=el.textContent.trim().replace(/([0-9]+)(st|nd|rd|th)/,"$1");
     var parsed=new Date(dateStr+" "+year);
+    if(!isNaN(parsed)&&parsed<today-180*864e5)parsed=new Date(dateStr+" "+(year+1));
     if(!isNaN(parsed)&&parsed<cutoff)card.style.display="none";
   });
   document.querySelectorAll(".sec-head").forEach(function(h){
